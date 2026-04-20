@@ -254,43 +254,44 @@ async def get_plant_parts():
     return [r["plant_part"] for r in rows]
 
 
-@app.get("/api/map")
 @app.get("/api/locations")
 async def get_locations():
-    conn = get_db()
-    # Get geocoded locations that have coordinates
-    locs = _rows(conn, "SELECT * FROM locations WHERE lat IS NOT NULL")
-    
-    for l in locs:
-        # For each location, find species and top compounds
-        species = _rows(conn, """
-            SELECT DISTINCT sp.id, sp.scientific_name 
-            FROM species sp
-            JOIN samples sa ON sa.species_id = sp.id
-            WHERE sa.location_id = ?
-        """, [l['id']])
+    try:
+        conn = get_db()
+        locs = _rows(conn, "SELECT * FROM locations WHERE lat IS NOT NULL")
         
-        compounds = _rows(conn, """
-            SELECT DISTINCT c.id, c.molecule_name
-            FROM compounds c
-            JOIN measurements m ON m.compound_id = c.id
-            JOIN samples sa ON m.sample_id = sa.id
-            WHERE sa.location_id = ?
-            LIMIT 10
-        """, [l['id']])
-        
-        l['species'] = species
-        l['compounds'] = compounds
-        l['species_count'] = len(species)
-        l['compounds_count'] = _scalar(conn, """
-            SELECT COUNT(DISTINCT m.compound_id)
-            FROM measurements m
-            JOIN samples sa ON m.sample_id = sa.id
-            WHERE sa.location_id = ?
-        """, [l['id']])
-        
-    conn.close()
-    return locs
+        for l in locs:
+            species = _rows(conn, """
+                SELECT DISTINCT sp.id, sp.scientific_name 
+                FROM species sp
+                JOIN samples sa ON sa.species_id = sp.id
+                WHERE sa.location_id = ?
+            """, [l['id']])
+            
+            compounds = _rows(conn, """
+                SELECT DISTINCT c.id, c.molecule_name
+                FROM compounds c
+                JOIN measurements m ON m.compound_id = c.id
+                JOIN samples sa ON m.sample_id = sa.id
+                WHERE sa.location_id = ?
+                LIMIT 10
+            """, [l['id']])
+            
+            l['species'] = species
+            l['compounds'] = compounds
+            l['species_count'] = len(species)
+            l['compounds_count'] = _scalar(conn, """
+                SELECT COUNT(DISTINCT m.compound_id)
+                FROM measurements m
+                JOIN samples sa ON m.sample_id = sa.id
+                WHERE sa.location_id = ?
+            """, [l['id']])
+            
+        conn.close()
+        return locs
+    except Exception as e:
+        print(f"Error in get_locations: {e}")
+        return []
 
 
 @app.get("/api/compounds")
