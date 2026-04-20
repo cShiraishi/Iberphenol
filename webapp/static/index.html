@@ -453,7 +453,9 @@ tailwind.config={theme:{extend:{colors:{primary:'#c41e1e'}}}}
                     <tbody>
                       <template x-for="m in detail.measurements" :key="m.id">
                         <tr class="border-b border-slate-800/60">
-                          <td class="py-1.5 pr-3 italic text-slate-300" x-text="m.scientific_name || '—'"></td>
+                          <td class="py-1.5 pr-3 italic text-slate-300 cursor-pointer hover:text-emerald-400 decoration-emerald-500/30 hover:underline underline-offset-4 transition-all" 
+                              @click="jumpToSpecies(m.species_id)"
+                              x-text="m.scientific_name || '—'"></td>
                           <td class="py-1.5 pr-3 font-mono text-emerald-300" x-text="(m.concentration_value || '—') + (m.concentration_unit ? ' ' + m.concentration_unit : '')"></td>
                           <td class="py-1.5 pr-3 text-slate-400" x-text="m.plant_part || '—'"></td>
                           <td class="py-1.5 pr-3 text-slate-400" x-text="m.origin || '—'"></td>
@@ -1214,6 +1216,19 @@ function phenolDB() {
       this.fetchCompounds();
     },
 
+    async jumpToSpecies(speciesId) {
+      if (!speciesId) return;
+      this.view = 'species';
+      this.detail = null; // Close compound detail
+      await this.loadSpeciesView();
+      const species = this.speciesList.find(s => s.id === speciesId);
+      if (species) {
+        this.loadSpeciesDetail(species);
+        // Scroll to detail if mobile
+        document.querySelector('.content-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    },
+
     prevPage() { if (this.page > 1) { this.page--; this.fetchCompounds(); } },
     nextPage() { if (this.page < this.totalPages) { this.page++; this.fetchCompounds(); } },
 
@@ -1265,37 +1280,50 @@ function phenolDB() {
 
     async loadMap() {
       await this.$nextTick();
-      await new Promise(function(r){ setTimeout(r, 80); });
+      await new Promise(function(r){ setTimeout(r, 150); });
       if (this._map) { this._map.invalidateSize(); return; }
 
-      this._map = L.map('map', { zoomControl: true }).setView([39.5, -8.0], 6);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors', maxZoom: 18
+      const mapEl = document.getElementById('map');
+      if (!mapEl) return;
+
+      this._map = L.map('map', { zoomControl: true }).setView([39.8, -7.8], 6.5);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap contributors © CARTO', maxZoom: 18
       }).addTo(this._map);
 
-      const r = await fetch('/api/map');
+      const r = await fetch('/api/locations');
       const locations = await r.json();
       const self = this;
 
       locations.forEach(function(loc) {
-        const size = Math.min(46, Math.max(22, 16 + Math.sqrt(loc.compound_count) * 3));
+        const size = Math.min(42, Math.max(20, 14 + Math.sqrt(loc.compounds_count) * 3));
         const icon = L.divIcon({
           className: '',
-          html: '<div style="width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:#c41e1e;border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;color:#fff;font-size:' + (size > 30 ? 10 : 9) + 'px;font-weight:700;">' + loc.compound_count + '</div>',
+          html: '<div class="map-marker-pulse" style="width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:rgba(52,183,136,0.8);border:2px solid #fff;box-shadow:0 0 15px rgba(52,183,136,0.5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:' + (size > 30 ? 11 : 9) + 'px;font-weight:700;">' + loc.compounds_count + '</div>',
           iconSize: [size, size],
           iconAnchor: [size/2, size/2],
         });
-        const marker = L.marker([loc.lat, loc.lon], { icon }).addTo(self._map);
-        marker.bindTooltip('<b>' + loc.name + '</b><br>' + loc.compound_count + ' compostos · ' + loc.species.length + ' espécies', { direction: 'top' });
-        marker.on('click', function() {
-          self.mapSelected = loc;
-          self.mapCompounds = [];
-          self.mapLoading = true;
-          fetch('/api/map/compounds?location=' + encodeURIComponent(loc.name))
-            .then(function(res) { return res.json(); })
-            .then(function(data) { self.mapCompounds = data; self.mapLoading = false; });
+        const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(self._map);
+        
+        let popupHtml = '<div class="p-3 min-w-[200px] bg-slate-900 text-slate-200 rounded-lg border border-slate-700 shadow-xl">';
+        popupHtml += '<h3 class="text-sm font-bold text-emerald-400 mb-2 flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>' + loc.name + '</h3>';
+        popupHtml += '<div class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-2">' + loc.species_count + ' espécies identificadas</div>';
+        
+        popupHtml += '<div class="space-y-1 mb-3">';
+        loc.species.slice(0, 5).forEach(function(s) {
+          popupHtml += '<div class="text-xs italic text-slate-300 hover:text-emerald-400 cursor-pointer flex items-center gap-1" onclick="window.dispatchJump(' + s.id + ')"><svg class="w-2.5 h-2.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"/></svg>' + s.scientific_name + '</div>';
         });
+        if(loc.species.length > 5) popupHtml += '<div class="text-[9px] text-slate-500">... e mais ' + (loc.species.length - 5) + '</div>';
+        popupHtml += '</div>';
+        
+        popupHtml += '<button class="w-full py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-bold rounded transition-colors uppercase tracking-tight">Ver Tudo Localmente</button>';
+        popupHtml += '</div>';
+
+        marker.bindPopup(popupHtml, { className: 'custom-leaflet-popup', closeButton: false });
       });
+      
+      // Global jump dispatcher for marker popups
+      window.dispatchJump = (id) => this.jumpToSpecies(id);
     },
 
     parseSpeciesLocations(origins) {
