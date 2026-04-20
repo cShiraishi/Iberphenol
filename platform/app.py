@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, StreamingResponse
@@ -8,14 +9,16 @@ import csv
 
 from database import init_db, get_db
 
-app = FastAPI(title="PhenolDB Research Platform", version="1.0")
 STATIC_DIR = Path(__file__).parent / "static"
 
 
-@app.on_event("startup")
-async def startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     init_db()
+    yield
 
+
+app = FastAPI(title="PhenolDB Research Platform", version="1.0", lifespan=lifespan)
 
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
