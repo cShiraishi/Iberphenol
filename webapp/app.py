@@ -155,7 +155,9 @@ async def get_species_graph():
                COUNT(DISTINCT c.id) as compound_count,
                COUNT(DISTINCT c.compound_class) as class_count
         FROM species sp
-        JOIN compounds c ON c.species_id = sp.id
+        JOIN samples sa ON sa.species_id = sp.id
+        JOIN measurements m ON m.sample_id = sa.id
+        JOIN compounds c ON m.compound_id = c.id
         GROUP BY sp.id ORDER BY compound_count DESC
     """)
 
@@ -163,7 +165,9 @@ async def get_species_graph():
         SELECT sp.id as species_id, sp.scientific_name,
                c.compound_class, COUNT(DISTINCT c.id) as count
         FROM species sp
-        JOIN compounds c ON c.species_id = sp.id
+        JOIN samples sa ON sa.species_id = sp.id
+        JOIN measurements m ON m.sample_id = sa.id
+        JOIN compounds c ON m.compound_id = c.id
         WHERE c.compound_class IS NOT NULL AND c.compound_class != ''
         GROUP BY sp.id, c.compound_class
     """)
@@ -173,8 +177,14 @@ async def get_species_graph():
             SELECT a.species_id as s1, b.species_id as s2,
                    sa.scientific_name as name1, sb.scientific_name as name2,
                    COUNT(DISTINCT a.molecule_name) as shared_compounds
-            FROM (SELECT species_id, molecule_name FROM compounds) a
-            JOIN (SELECT species_id, molecule_name FROM compounds) b
+            FROM (SELECT DISTINCT sa.species_id, c.molecule_name 
+                  FROM compounds c 
+                  JOIN measurements m ON c.id = m.compound_id
+                  JOIN samples sa ON m.sample_id = sa.id) a
+            JOIN (SELECT DISTINCT sa.species_id, c.molecule_name 
+                  FROM compounds c 
+                  JOIN measurements m ON c.id = m.compound_id
+                  JOIN samples sa ON m.sample_id = sa.id) b
               ON a.molecule_name = b.molecule_name AND a.species_id < b.species_id
             JOIN species sa ON sa.id = a.species_id
             JOIN species sb ON sb.id = b.species_id
@@ -264,7 +274,7 @@ async def get_compounds(
         )
         params.extend([f"%{search}%"] * 5)
     if species_id:
-        conds.append("c.species_id = ?")
+        conds.append("sa.species_id = ?")
         params.append(species_id)
     if compound_class:
         conds.append("c.compound_class = ?")
@@ -280,21 +290,22 @@ async def get_compounds(
 
     base = f"""
         FROM compounds c
-        LEFT JOIN species sp ON c.species_id = sp.id
         LEFT JOIN chemical_data cd ON c.molecule_name = cd.molecule_name
         LEFT JOIN measurements m ON c.id = m.compound_id
         LEFT JOIN samples sa ON m.sample_id = sa.id
+        LEFT JOIN species sp ON sa.species_id = sp.id
         {where}
     """
 
     total = _scalar(conn, f"SELECT COUNT(DISTINCT c.id) {base}", params)
     rows = _rows(
         conn,
-        f"""SELECT DISTINCT c.id, c.species_id, c.compound_class, c.subclass, c.molecule_name,
-                   sp.scientific_name,
+        f"""SELECT DISTINCT c.id, c.compound_class, c.subclass, c.molecule_name,
+                   GROUP_CONCAT(DISTINCT sp.scientific_name) as scientific_name,
                    cd.status, cd.cid, cd.smiles, cd.iupac_name,
                    cd.molecular_formula, cd.molecular_weight, cd.source
             {base}
+            GROUP BY c.id
             ORDER BY c.compound_class, c.molecule_name
             LIMIT ? OFFSET ?""",
         params + [limit, offset],
@@ -309,11 +320,10 @@ async def get_compound_detail(compound_id: int):
     conn = get_db()
 
     compound = conn.execute(
-        """SELECT c.*, sp.scientific_name,
-                  cd.status, cd.cid, cd.smiles, cd.isomeric_smiles, cd.canonical_smiles,
+        """SELECT c.id, c.compound_class, c.subclass, c.molecule_name,
+                  cd.status, cd.cid, cd.smiles,
                   cd.iupac_name, cd.molecular_formula, cd.molecular_weight, cd.source
            FROM compounds c
-           LEFT JOIN species sp ON c.species_id = sp.id
            LEFT JOIN chemical_data cd ON c.molecule_name = cd.molecule_name
            WHERE c.id = ?""",
         [compound_id],
