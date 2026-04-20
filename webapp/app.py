@@ -1,8 +1,13 @@
 import os
 import io
 import csv
+import sys
 import sqlite3
 from pathlib import Path
+
+# Add the current directory to sys.path to allow importing 'database'
+sys.path.append(os.path.dirname(__file__))
+
 from database import init_db, get_db
 
 from contextlib import asynccontextmanager
