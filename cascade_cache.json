@@ -1,0 +1,4040 @@
+{
+  "trans p-Coumaric acid": {
+    "cid": 637542,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(E)-3-(4-hydroxyphenyl)prop-2-enoic acid",
+    "molecular_formula": "C9H8O3",
+    "molecular_weight": "164.16",
+    "status": "found",
+    "source": "pubchem_normalised:p-Coumaric acid"
+  },
+  "Apigenin 2’’-O-deoxyhexosyl-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2’’-O-deoxyhexosyl-6-C-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2’’-O-deoxyhexosyl-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2’’-O-deoxyosyl-6-C-(6-deoxy-pento-hexos-ulosyl)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 6-C-pentosyl-8-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 6-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 7-O-neohesperoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolin 2’’-O- deoxyhexosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Feruloyl N- tryptophan": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Feruloyl N- tryptophan hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hesperetin-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(6''-acetyl)-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-rhamnosylrutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-rhamnosylrutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(6''-acetyl)-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-rhamnosylrutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-deoxyhexosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p-Coumaric hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-glucuronide-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-hexoside-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Taxifolin derivatives": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin 3-O-(6′′-malonylglucoside)-5-O-glucosid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin 3-O-(6′′-succinylglucoside)-5-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Delphinidin-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Delphinidin-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pelargonidin 3-O-(6′′-succinylglucoside)-5-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pelargonidin-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeic acid rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Ferulic acid hexoside": {
+    "cid": 53978589,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] 3-(4-hydroxy-3-methoxyphenyl)prop-2-enoate",
+    "molecular_formula": "C16H20O9",
+    "molecular_weight": "356.32",
+    "status": "found",
+    "source": "pubchem_normalised:Ferulic acid glucoside"
+  },
+  "Apigenin 6,8-C-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin 2’’-O-pentosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isosakuranetin-7-O-rutinoside (didymin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isosakuranetin-7-O- neohesperidoside (poncirin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hesperetin-7-O-rutinoside (hesperidin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hesperetin-7-O-neohesperidoside (neohesperidin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-7-O-rutinoside-4’-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-7-O-neohesperidoside-4’-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-7-O-rutinoside (narirutin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-7-O-neohesperidoside (naringin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-7-O-rutinoside (eriocitrin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-O-dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Acetyl naringin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-Hydroxymethylglutaryl naringin (Melitidin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Ferulic acid derivative": {
+    "cid": 445858,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(E)-3-(4-hydroxy-3-methoxyphenyl)prop-2-enoic acid",
+    "molecular_formula": "C10H10O4",
+    "molecular_weight": "194.18",
+    "status": "found",
+    "source": "pubchem_normalised:Ferulic acid"
+  },
+  "Feruloyl pentoside acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p-Coumaroyl acid derivative": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p-Coumaroyl pentoside acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin C-hexoside-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin dirhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin O-rhamnosyl-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin O-rhamnosyl-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol (acyl)glucuronide-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol dirhamnoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol dirhamnoside-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-dirhamnosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-pentosyl-rhamnosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-rhamnosyl-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-rhamnosyl-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 3-O-neohesperide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 3-O-rutinoside-(1→2)-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin (acyl)glucuronide-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin dirhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-pentosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-pentosyl-rhamnosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-rhamnosyl-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-rhamnosyl-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl ellagic acid hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl ellagic acid pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl ellagic acid deoxyhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Epi)gallocatechin-O-gallate": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hesperitin-O-rutinoside/ hesperetin-O-neohesperidoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eucaglobulin/globulusin B": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hydroxymethoxyphenyl-galloyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-O-Caffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5-O-Caffeoylquinic acid-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeoyl-hexoside-methylglutarate": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5-O-caffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p-coumaroyl-hexoside-methylglutarate": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p-coumaroyl–hexoside-methylglutarate": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeic acid derivative": {
+    "cid": 689043,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(E)-3-(3,4-dihydroxyphenyl)prop-2-enoic acid",
+    "molecular_formula": "C9H8O4",
+    "molecular_weight": "180.16",
+    "status": "found",
+    "source": "pubchem_normalised:Caffeic acid"
+  },
+  "Apigenin 6-C-glucose-8-C-glucose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin derivative": {
+    "cid": 5280443,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "5,7-dihydroxy-2-(4-hydroxyphenyl)chromen-4-one",
+    "molecular_formula": "C15H10O5",
+    "molecular_weight": "270.24",
+    "status": "found",
+    "source": "pubchem_normalised:Apigenin"
+  },
+  "Apigenin O-glucuronylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin O-pentosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin O-rhamnosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-pentosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 7-O-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quecetin 3-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-rhamnosyl hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pedunculagin isomer (bis-HHDP-glucose)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Castalagin/vescalagin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Galloyl-HHDP derivative": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Trigalloyl-HHDP-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dimethoxycinnamoyl hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin -3-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeoyl N- tryptophan": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeoly N- tryptophan hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "di-O-caffeoylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-8-C-hexoside-7-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-8-C-hexoside-5-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Acetylated apigenin-C-hexoside-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Acetylated luteolin hexoxyl-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin hexoxyl-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin-3-O-sinapoylglucoside-5-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin-3-O-feruloyl glucoside-5-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin -3-O-p-coumaroyl glucoside -5-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Peonidin-3-O-sinapoylglucoside-5-O-glucosid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Peonidin -3-O-feruloyl glucoside-5-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Peonidin -3-O-p-coumaroyl glucoside -5-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Gentisoyl hexoside": {
+    "cid": 101339724,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] 2,5-dihydroxybenzoate",
+    "molecular_formula": "C13H16O9",
+    "molecular_weight": "316.26",
+    "status": "found",
+    "source": "pubchem_normalised:Gentisoyl glucoside"
+  },
+  "Apigenin-6-C-glucose-8-C-glucose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-hexoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol dimethylether hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol methylether": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-hexoside-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-hexoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Punicalin isomer 1": {
+    "cid": 5464368,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(10S,11R,12R,13R,15R)-3,4,5,11,12,13,21,22,23,26,27,38,39-tridecahydroxy-9,14,17,29,36-pentaoxaoctacyclo[29.8.0.02,7.010,15.019,24.025,34.028,33.032,37]nonatriaconta-1(39),2,4,6,19,21,23,25,27,31,33,37-dodecaene-8,18,30,35-tetrone",
+    "molecular_formula": "C34H22O22",
+    "molecular_weight": "782.5",
+    "status": "found",
+    "source": "pubchem_normalised:Punicalin"
+  },
+  "Punicalin isomer 2": {
+    "cid": 5464368,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(10S,11R,12R,13R,15R)-3,4,5,11,12,13,21,22,23,26,27,38,39-tridecahydroxy-9,14,17,29,36-pentaoxaoctacyclo[29.8.0.02,7.010,15.019,24.025,34.028,33.032,37]nonatriaconta-1(39),2,4,6,19,21,23,25,27,31,33,37-dodecaene-8,18,30,35-tetrone",
+    "molecular_formula": "C34H22O22",
+    "molecular_weight": "782.5",
+    "status": "found",
+    "source": "pubchem_normalised:Punicalin"
+  },
+  "Punicalagin isomer 1": {
+    "cid": 16129719,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "3,4,5,16,17,18-hexahydroxy-8,13-dioxo-11-(3,4,5,11,17,18,19,22,23,34,35-undecahydroxy-8,14,26,31-tetraoxo-9,13,25,32-tetraoxaheptacyclo[25.8.0.02,7.015,20.021,30.024,29.028,33]pentatriaconta-1(35),2,4,6,15,17,19,21,23,27,29,33-dodecaen-10-yl)-9,12-dioxatricyclo[12.4.0.02,7]octadeca-1(18),2,4,6,14,16-hexaene-10-carbaldehyde",
+    "molecular_formula": "C48H28O30",
+    "molecular_weight": "1084.7",
+    "status": "found",
+    "source": "pubchem_normalised:Punicalagin"
+  },
+  "Punicalagin gallate 1": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Punicalagin isomer 2": {
+    "cid": 16129719,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "3,4,5,16,17,18-hexahydroxy-8,13-dioxo-11-(3,4,5,11,17,18,19,22,23,34,35-undecahydroxy-8,14,26,31-tetraoxo-9,13,25,32-tetraoxaheptacyclo[25.8.0.02,7.015,20.021,30.024,29.028,33]pentatriaconta-1(35),2,4,6,15,17,19,21,23,27,29,33-dodecaen-10-yl)-9,12-dioxatricyclo[12.4.0.02,7]octadeca-1(18),2,4,6,14,16-hexaene-10-carbaldehyde",
+    "molecular_formula": "C48H28O30",
+    "molecular_weight": "1084.7",
+    "status": "found",
+    "source": "pubchem_normalised:Punicalagin"
+  },
+  "Punicalagin gallate 2": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-rhamnoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-rhamnoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "615(11),463(3),301(46)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Trigalloyl HHDP glucose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis 3-Caffeoylquinic acid": {
+    "cid": 1794427,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1S,3R,4R,5R)-3-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy-1,4,5-trihydroxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O9",
+    "molecular_weight": "354.31",
+    "status": "found",
+    "source": "pubchem_normalised:3-Caffeoylquinic acid"
+  },
+  "trans 3-Caffeoylquinic acid": {
+    "cid": 1794427,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1S,3R,4R,5R)-3-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy-1,4,5-trihydroxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O9",
+    "molecular_weight": "354.31",
+    "status": "found",
+    "source": "pubchem_normalised:3-Caffeoylquinic acid"
+  },
+  "cis 4-p-Coumaroylquinic acid": {
+    "cid": 5281766,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "trans-(3R,5R)-1,3,5-trihydroxy-4-[(E)-3-(4-hydroxyphenyl)prop-2-enoyl]oxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O8",
+    "molecular_weight": "338.31",
+    "status": "found",
+    "source": "pubchem_normalised:4-p-Coumaroylquinic acid"
+  },
+  "trans 4-p-Coumaroylquinic acid": {
+    "cid": 5281766,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "trans-(3R,5R)-1,3,5-trihydroxy-4-[(E)-3-(4-hydroxyphenyl)prop-2-enoyl]oxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O8",
+    "molecular_weight": "338.31",
+    "status": "found",
+    "source": "pubchem_normalised:4-p-Coumaroylquinic acid"
+  },
+  "cis 5-p-Coumaroylquinic acid": {
+    "cid": 164893,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1S,3R,4R,5R)-1,3,4-trihydroxy-5-[3-(4-hydroxyphenyl)prop-2-enoyloxy]cyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O8",
+    "molecular_weight": "338.31",
+    "status": "found",
+    "source": "pubchem_normalised:5-p-Coumaroylquinic acid"
+  },
+  "trans 5-p-Coumaroylquinic acid": {
+    "cid": 164893,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1S,3R,4R,5R)-1,3,4-trihydroxy-5-[3-(4-hydroxyphenyl)prop-2-enoyloxy]cyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O8",
+    "molecular_weight": "338.31",
+    "status": "found",
+    "source": "pubchem_normalised:5-p-Coumaroylquinic acid"
+  },
+  "Procyanidin trimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "2’’-O-Rhamnose-C-hexoside apigenin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "2’’-O-Rhamnose-C-acetyl-hexoside apigenin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin acetyl hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin derivative": {
+    "cid": 5280445,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxychromen-4-one",
+    "molecular_formula": "C15H10O6",
+    "molecular_weight": "286.24",
+    "status": "found",
+    "source": "pubchem_normalised:Luteolin"
+  },
+  "2’’-O-Pentoxide-8-C-hexoside luteolin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "2’’-O-Pentoxide-8-C-hexoside apigenin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin acetyldihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysin derivative": {
+    "cid": 5281607,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "5,7-dihydroxy-2-phenylchromen-4-one",
+    "molecular_formula": "C15H10O4",
+    "molecular_weight": "254.24",
+    "status": "found",
+    "source": "pubchem_normalised:Chrysin"
+  },
+  "Kaempferol-O-rhamnosylrutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-pentosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-acetyldeoxyhexosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(6’’-acetyl)-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(6’’-acetyl)-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyanidin dimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyanidin trimer with a type-A linkage": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin-O-hexoside (derivative)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin-O-methyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-pentosyl-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-malonyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3,7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3,7-di-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Delphinidin di-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Petunidin di-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-O-hexoside-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-4-O-hexoside-7-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-deoxyhexosyl": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylquercetin-O-hexoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylquercetin-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-p-Coumarouylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "1,5-O-Dicaffeoylquinic aci": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-7-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-O-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin-malonyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cis-Chicoric acid": {
+    "cid": 5281764,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R,3R)-2,3-bis[[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy]butanedioic acid",
+    "molecular_formula": "C22H18O12",
+    "molecular_weight": "474.4",
+    "status": "found",
+    "source": "pubchem_normalised:Chicoric acid"
+  },
+  "Trans-Chicoric acid": {
+    "cid": 5281764,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R,3R)-2,3-bis[[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy]butanedioic acid",
+    "molecular_formula": "C22H18O12",
+    "molecular_weight": "474.4",
+    "status": "found",
+    "source": "pubchem_normalised:Chicoric acid"
+  },
+  "Coutaric acid hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-7-O-(6′′-O-acetyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6′′-O-acetyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(6′′-O-acetyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Feruloylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "6-C-Hexosyl-8-C-pentosyl luteolin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "6-C-Pentosyl-8-C-hexosyl apigenin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "6-C-β-Glucopyranosyl luteolin (isoorientin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "2''-O-Rhamnosyl isoorientin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "6-C-Pentosyl-8-C-pentosyl luteolin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "7-O-β-Glucopyranosyl luteolin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "7-O-Neohesperosyl luteolin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "6-C-Pentosyl-8-C-deoxyhexosyl luteolin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "6-C-Pentosyl luteolin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "X''-O-Rhamnosyl C-pentosyl luteolin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "2''-O-Rhamnosyl C-(6-deoxy-pento-hexos-3-ulosyl) luteolin (cassiaoccidentalin B)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteoliflavan-O-hexosyl-eriodictyol-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigeniflavan-O-hexosyl-eriodictyol-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteoliflavan-O-hexosyl-naringenin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigeniflavan-O-hexosyl-naringenin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigeniflavan-eriodictyol-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteoliflavan-eriodictyol-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteoliflavan-naringenin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteoliflavan–naringenin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigeniflavan-naringenin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigeniflavan–naringenin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteoliflavan–eriodictyol": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2″-O-deoxyhexosyl-6-C-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin 2″-O-deoxyhexosyl-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2″-O-deoxyhexosyl-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2″-O-deoxyosyl-C-(6-deoxy-pento-hexosulosyl)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolin 2″-O-deoxyhexosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeoylglucaric acid isomers": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Glucosylsinapic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dihydrocaffeoylquinic acid isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-8-C-hexoside": {
+    "cid": 5281675,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-8-[(2S,3R,4R,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]chromen-4-one",
+    "molecular_formula": "C21H20O11",
+    "molecular_weight": "448.4",
+    "status": "found",
+    "source": "pubchem_normalised:Luteolin-8-C-glucoside"
+  },
+  "Apigenin-8-C-hexoside": {
+    "cid": 5280441,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "5,7-dihydroxy-2-(4-hydroxyphenyl)-8-[(2S,3R,4R,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]chromen-4-one",
+    "molecular_formula": "C21H20O10",
+    "molecular_weight": "432.4",
+    "status": "found",
+    "source": "pubchem_normalised:Apigenin-8-C-glucoside"
+  },
+  "Apigenin-6-C-hexoside": {
+    "cid": 162350,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "5,7-dihydroxy-2-(4-hydroxyphenyl)-6-[(2S,3R,4R,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]chromen-4-one",
+    "molecular_formula": "C21H20O10",
+    "molecular_weight": "432.4",
+    "status": "found",
+    "source": "pubchem_normalised:Apigenin-6-C-glucoside"
+  },
+  "Chrysoeriol-8-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-6,8-di-C-hexoside": {
+    "cid": 442615,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-6,8-bis[(2S,3R,4R,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]chromen-4-one",
+    "molecular_formula": "C27H30O16",
+    "molecular_weight": "610.5",
+    "status": "found",
+    "source": "pubchem_normalised:Luteolin-6,8-di-C-glucoside"
+  },
+  "Apigenin-6-C-pentoside-8-C-hexoside": {
+    "cid": 137333732,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "8-[(3S,4S,5R)-3,4-dihydroxy-5-(hydroxymethyl)oxolan-2-yl]-5,7-dihydroxy-6-[(3R,4R,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]-2-[4-[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxyphenyl]chromen-4-one",
+    "molecular_formula": "C32H38O19",
+    "molecular_weight": "726.6",
+    "status": "found",
+    "source": "pubchem_normalised:Apigenin-6-C-arabinoside-8-C-glucoside"
+  },
+  "Luteolin-6-C-(6-O-hexosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-6-C-(6-O-hexosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-6-C-(2-O-pentosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-8-C-(2-O-pentosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-6-C-pentosyl-8-C-hexosyl-7-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-6-C-(3-O-hexosyl)hexosyl-8-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-6-C-pentosyl-8-C-(2-O-hexosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-6-C-(2-O-hexosyl)hexosyl-8-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-7-O-rhamnosyl(1→2)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol-7-O-hexoside": {
+    "cid": 13871877,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "5-hydroxy-2-(4-hydroxy-3-methoxyphenyl)-7-[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+    "molecular_formula": "C22H22O11",
+    "molecular_weight": "462.4",
+    "status": "found",
+    "source": "pubchem_normalised:Chrysoeriol-7-O-glucoside"
+  },
+  "Chrysoeriol-7-O-rhamnosyl(1→6)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "8-C-glucosylchrysoeriol": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodyctiol-7-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2,6-di-O-rhamnosyl)galactoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2,6-di-O-rhamnosyl)galactoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2,6-di-O-rhamnosyl-galactoside)-7-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-O-rhamnosyl-galactoside)-7-O-galactoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-O-rhamnosyl-galactoside)-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2,6-di-O-rhamnosyl-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2,6-di-O-rhamnosyl-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(2,6-di-O-rhamnosylgalactoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(2,6-di-O-rhamnosyl-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(6-O-rhamnosyl-galactoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(6-O-rhamnosyl-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-O-rhamnosyl-galactoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-O-rhamnosyl-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(6-O-rhamnosyl-galactoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(6-O-rhamnosyl-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Anthocyanin 2": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl ellagic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-rhamnosyl(1-6)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-rhamnosyl(1-6)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5-C-methylaureusidin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "7-C-methylaureusidin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-hydroxy-l,5,6-trimethoxyxanthone": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-6,8-di-C-glucoside (vicenin-2)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-6,8-di-C-glucoside (lucenin-2)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol-6,8-di-C-glucoside (stellarin-2)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol-6-C-pentoside-8-C-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol-6-C-glucoside-8-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-O-Caffeoyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin-3-O-rhamnoside-7-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis 3,5-O-dicaffeoylquinic acid": {
+    "cid": 6474310,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "trans-(3R,5R)-3,5-bis[[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy]-1,4-dihydroxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C25H24O12",
+    "molecular_weight": "516.4",
+    "status": "found",
+    "source": "pubchem_normalised:3,5-O-dicaffeoylquinic acid"
+  },
+  "Apigenin C-glucose-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin C-hexoside-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin C-hexoside-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin O-dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin O-pentosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-pentosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-malonylhexosyl-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B1 dimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type procyanidin dimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type procyanidin tetramer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type procyanidin trimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "PA dimer (GC+C)b": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin galloylhexoside derivative": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin pentoside": {
+    "cid": 5484218,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "5-[2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-4-oxochromen-3-yl]oxy-2,3,4-trihydroxypentanal",
+    "molecular_formula": "C20H18O11",
+    "molecular_weight": "434.3",
+    "status": "found",
+    "source": "pubchem_normalised:Quercetin arabinoside"
+  },
+  "Cyanidin 3-O-pentoside": {
+    "cid": 12137509,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2S,3R,4S,5S)-2-[2-(3,4-dihydroxyphenyl)-5,7-dihydroxychromenylium-3-yl]oxyoxane-3,4,5-triol",
+    "molecular_formula": "C20H19O10+",
+    "molecular_weight": "419.4",
+    "status": "found",
+    "source": "pubchem_normalised:Cyanidin 3-O-arabinoside"
+  },
+  "Digalloylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Digalloylquinic shikimic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Galloylhexoside acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Strictinin ellagitannin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol-7-O-diglucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol 7-O-diglucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin 2’’-O-acetylpentosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin 2’’-O-feruloylhexosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin 6-C-hexoside-8-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2’’-O-feruloylhexosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolin 2’’-O-acetylpentosyl-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolin 2’’-O-feruloylhexosyl-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(6″-O-p-coumaroyl)-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyanidin dimer B3": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyanidin dimer B7": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-X-O-Hexoside-2''-O-Rhamnoside-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sinapic acid pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Acetyl isorhamnetin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Acetyl kaempferol-O-deoxyhexosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Acetyl kaempferol-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-hexosyl-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-hexosyl-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-pentosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-hexosyl-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-hexosyl-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-pentosyl-deoxyhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Laricitrin-3-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl herbacetrin-3-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl herbacetrin-3-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl herbacetrin-O-dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl herbacetrin-O-hexosyl-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-hexosyl-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-hexosyl-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-hexosyl-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-pentosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-C-hexoside-O-rhamnosyl–hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-6-C-glucoside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "1,2-Disinapoylgentiobioside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isomer of 1,2-disinapoylgentiobioside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "1,2,2' -trisinapoylgentiobiose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "1,2 -disinapoyl-2-feruloylgentiobiose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sinapoylgentiobiose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sinapoylgentiobiose isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "1-Sinapoylglucose isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "1-Sinapoylglucose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "diferuloyl-gentiobioside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-tetraglcucoside-7-O-sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-sophorotrioside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-sophorotrioside-7-O-sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-sophoroside-7-O-sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-sophorotrioside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-glycoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(feruloyl/caffeoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(sinapoyl/caffeoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(feruloyl/caffeoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(sinapoyl)-sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(feruloyl)sophorotrioside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(feruloyl)sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-Sophoroside-7-O-Glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-(cafeoyl)-sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-(sinapoyl)-sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-(feruloyl)-sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-(p-coumaroyl)-sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(sinapoyl)sophorotrioside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3,7-di-O-glucoside-4-O -(sinapoyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-sophorotrioside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "kaempferol-3-O-gentiobioside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-gentiobioside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-sophorotrioside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-sophorotrioside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-sophoroside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-sophoroside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-sophoroside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-gentiobioside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(sinapoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(feruloyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(methoxicaffeoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(caffeoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(sinapoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(feruloyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(p-coumaroyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(p-coumaroyl)gentiobioside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(feruloyl)sophoroside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(sinapoyl)sophoroside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(feruloyl)sophoroside-7-O-diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(p-coumaroyl)sophoroside-7-O- diglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(sinapoyl)sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(feruloyl)sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(sinapoyl)sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(feruloyl)sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-sophoroside7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3,7-di-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(methoxycaffeoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(caffeoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(p-coumaroyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(caffeoyl)sophoroside-7-O-glucoside (isomer)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(methoxycaffeoyl)sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(feruloyl)sophoroside-7-O-glucoside (isomer)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "kaempferol-3-O-(p-coumaroyl)sophoroside-7-O-glucoside (isomer)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(methoxycaffeoyl)sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(caffeoyl)sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(p-coumaroyl)sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-4'-O-Glycoside-6-C-Glycoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-X-O-Hexoside-2''-O-Rhamnoside-8-C-Heptoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-4'-O-Glycoside-6-C-Glycoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 4'-O-Glycoside-8-C-Glycoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-X-O-Hexoside-2''-O-Rhamnosyl-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-2''-O-Rhamnoside-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-2''-O-Rhamnoside-6-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-2''-O-Rhamnoside-8-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolina-2''-O-Rhamnoside-6-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolina-2''-O-Rhamnoside-8-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5-O-Caffeolquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-pentosyl-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-pentosyl-rhamnosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-acetyldihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-deoxyhexosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hesperetin-pentosyl-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-3-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-hexoside-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pentahydroxyflavanone-acetylhexoside-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pentahydroxyflavanone-dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Acetylcoreopsin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Butein-4’-glucoside (Coreopsin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Coreopsin derivative": {
+    "cid": 12303943,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(E)-3-(3,4-dihydroxyphenyl)-1-[2-hydroxy-4-[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxyphenyl]prop-2-en-1-one",
+    "molecular_formula": "C21H22O10",
+    "molecular_weight": "434.4",
+    "status": "found",
+    "source": "pubchem_normalised:Coreopsin"
+  },
+  "Isoliquiritigenin-hexoside-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoliquiritigenin-dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin-hexoside": {
+    "cid": 441667,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2S,3R,4S,5S,6R)-2-[2-(3,4-dihydroxyphenyl)-5,7-dihydroxychromenylium-3-yl]oxy-6-(hydroxymethyl)oxane-3,4,5-triol",
+    "molecular_formula": "C21H21O11+",
+    "molecular_weight": "449.4",
+    "status": "found",
+    "source": "pubchem_normalised:Cyanidin-glucoside"
+  },
+  "Pelargonidin-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pelargonidin-hexoside": {
+    "cid": 443648,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2S,3R,4S,5S,6R)-2-[5,7-dihydroxy-2-(4-hydroxyphenyl)chromenylium-3-yl]oxy-6-(hydroxymethyl)oxane-3,4,5-triol",
+    "molecular_formula": "C21H21O10+",
+    "molecular_weight": "433.4",
+    "status": "found",
+    "source": "pubchem_normalised:Pelargonidin-glucoside"
+  },
+  "Methylapigeninidin-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-glucoside-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-acetylglucoside-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-rhamnoside-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-glucoside-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-acetylglucoside-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-acetylglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-acetylglucoside-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol acetyl-dihexose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol glucoside-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol acetylglucoside-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-acetylglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Proanthocyanidin tetramer containing an Afzelechin residue": {
+    "status": "not_found",
+    "source": ""
+  },
+  "A-type proanthocyanidin trimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Proanthocyanidin trimer (epi)afzelechin-(epi)catechin-(epi)catechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Proanthocyanidin trimer (epi)catechin-(epi)catechin-(epi)afzelechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Proanthocyanidin tetramer containing two Afzelechin residues": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(4-O-rhamnosyl)neohesperidose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-neohesperidoside derivative": {
+    "cid": 5318761,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "3-[(2S,3R,4S,5S,6R)-4,5-dihydroxy-6-(hydroxymethyl)-3-[(2S,3R,4R,5R,6S)-3,4,5-trihydroxy-6-methyloxan-2-yl]oxyoxan-2-yl]oxy-5,7-dihydroxy-2-(4-hydroxyphenyl)chromen-4-one",
+    "molecular_formula": "C27H30O15",
+    "molecular_weight": "594.5",
+    "status": "found",
+    "source": "pubchem_normalised:Kaempferol-3-O-neohesperidoside"
+  },
+  "Kaempferol-3-O-(3´´/4´´-acetyl)neohesperidose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(4´´-3´´-acetyl)-neohesperidose isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Tetragalloyl-glucose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eucaglobulin/Globulusin B": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylellagic acid pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Ellagic acid glucosi": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pentagalloyl-glucosi": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-pentosid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhametin-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin derivativ": {
+    "status": "not_found",
+    "source": ""
+  },
+  "4-O-Caffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5-O-Caffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Malonyl di-O-caffeoylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dymethyl ellagic acid pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Ferulic acid di-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyadinin dimer B1": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Cyanidin-malonylglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pelargonidin-malonylglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Peonidin-malonylglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Taxifolin-3-O-arabinofuranoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Unknown ellagitannin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Bis-HHDP-glucose isomer": {
+    "cid": 5320441,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1R,2S,19R,20R,22R)-7,8,9,12,13,14,20,28,29,30,33,34,35-tridecahydroxy-3,18,21,24,39-pentaoxaheptacyclo[20.17.0.02,19.05,10.011,16.026,31.032,37]nonatriaconta-5,7,9,11,13,15,26,28,30,32,34,36-dodecaene-4,17,25,38-tetrone",
+    "molecular_formula": "C34H24O22",
+    "molecular_weight": "784.5",
+    "status": "found",
+    "source": "pubchem_normalised:Bis-HHDP-glucose"
+  },
+  "Trigalloyl HHDP hexose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Tris-galloyl-HHDP hexose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Digalloyl-HHDP-hexose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Galloyl-bis-HHDP-glucose isomer": {
+    "cid": 162679336,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[(1R,2R,19S,20R,22R)-7,8,9,12,13,14,28,29,30,33,34,35-dodecahydroxy-4,17,25,38-tetraoxo-3,18,24,39-tetraoxaheptacyclo[20.17.0.02,19.05,10.011,16.026,31.032,37]nonatriaconta-5,7,9,11,13,15,26,28,30,32,34,36-dodecaen-20-yl] 3,4,5-trihydroxybenzoate",
+    "molecular_formula": "C42H30O25",
+    "molecular_weight": "934.7",
+    "status": "found",
+    "source": "pubchem_normalised:Galloyl-bis-HHDP-glucose"
+  },
+  "Castalagin/Vescalagin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methy ellagic acid rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Epi)catechin hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)catechin trimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)catechin tetramer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)afzelech-(epi)catechin-(epi)catechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)afzelechin-(epi)catechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)afzelechin-(epi)afzelechin-(epi)catechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyanidin dimers B3": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyanidin dimers B1": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyanidin dimers B2": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhametin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Taxifolin-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sanguiin h10 isomer": {
+    "cid": 131752591,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[36-[2,3-dihydroxy-5-[(3,4,5,11,12,21,22,23-octahydroxy-8,18-dioxo-9,14,17-trioxatetracyclo[17.4.0.02,7.010,15]tricosa-1(23),2,4,6,19,21-hexaen-13-yl)oxycarbonyl]phenoxy]-7,8,9,12,13,14,28,29,30,33,34,35-dodecahydroxy-4,17,25,38-tetraoxo-3,18,21,24,39-pentaoxaheptacyclo[20.17.0.02,19.05,10.011,16.026,31.032,37]nonatriaconta-5,7,9,11,13,15,26,28,30,32(37),33,35-dodecaen-20-yl] 3,4,5-trihydroxybenzoate",
+    "molecular_formula": "C68H48O44",
+    "molecular_weight": "1569.1",
+    "status": "found",
+    "source": "pubchem_normalised:Sanguiin h10"
+  },
+  "Methyl ellagic acid deoxyhexose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin hexose glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin deoxyhexose glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol deoxyhexose glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylquercetin deoxyhexose glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "di-HHDP-glucose-galloyl-ellagic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dimethyl ellagic acid pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Coumaroylquinic acid isomer": {
+    "cid": 6441280,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1S,3R,4R,5R)-1,3,4-trihydroxy-5-[(E)-3-(4-hydroxyphenyl)prop-2-enoyl]oxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O8",
+    "molecular_weight": "338.31",
+    "status": "found",
+    "source": "pubchem_normalised:Coumaroylquinic acid"
+  },
+  "(Epi)catechin hexosideA": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Gallocatechin-related flavan-3-ol": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-glucosideD": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol rhamnosyl-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylquercetin rhamnosyl glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin glucuronyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin rhamnosyl-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Taxifolin-pentoside": {
+    "cid": 100927068,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R,3S)-2-(3,4-dihydroxyphenyl)-5,7-dihydroxy-3-[(2S,3S,4R,5R)-3,4,5-trihydroxyoxan-2-yl]oxy-2,3-dihydrochromen-4-one",
+    "molecular_formula": "C20H20O11",
+    "molecular_weight": "436.4",
+    "status": "found",
+    "source": "pubchem_normalised:Taxifolin-arabinoside"
+  },
+  "Quercetin-3-O- rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 4´-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin pentoside derivative": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Ellagic acid derivative": {
+    "cid": 5281855,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "6,7,13,14-tetrahydroxy-2,9-dioxatetracyclo[6.6.2.04,16.011,15]hexadeca-1(15),4,6,8(16),11,13-hexaene-3,10-dione",
+    "molecular_formula": "C14H6O8",
+    "molecular_weight": "302.19",
+    "status": "found",
+    "source": "pubchem_normalised:Ellagic acid"
+  },
+  "Methyl ellagic acid rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin hexosyl-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin glucuronyl-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol glucuronyl-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol coumaroyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Epi)catechin–(epi)catechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Epi)catechin–(epi)catechin–(epi) afzelechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Epi)afzelechin–(epi)catechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Epi)catechin-(epi)afzelechin-(epi) afzelechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Bis-HHDP-hexose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Casuarictin/Potentillin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sanguiin H-6/Agrimoniin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sanguiin H-10 isomer": {
+    "cid": 131752591,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[36-[2,3-dihydroxy-5-[(3,4,5,11,12,21,22,23-octahydroxy-8,18-dioxo-9,14,17-trioxatetracyclo[17.4.0.02,7.010,15]tricosa-1(23),2,4,6,19,21-hexaen-13-yl)oxycarbonyl]phenoxy]-7,8,9,12,13,14,28,29,30,33,34,35-dodecahydroxy-4,17,25,38-tetraoxo-3,18,21,24,39-pentaoxaheptacyclo[20.17.0.02,19.05,10.011,16.026,31.032,37]nonatriaconta-5,7,9,11,13,15,26,28,30,32(37),33,35-dodecaen-20-yl] 3,4,5-trihydroxybenzoate",
+    "molecular_formula": "C68H48O44",
+    "molecular_weight": "1569.1",
+    "status": "found",
+    "source": "pubchem_normalised:Sanguiin H-10"
+  },
+  "Castalagin/vescalagin isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sanguiin H-2 isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Castalagin/Vescalagin isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Casuarictin/Potentillin isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sanguiin H-6/Agrimoniin/Lambertianin A isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis-Ferulic acid hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "trans-Ferulic acid hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 3-O-(6-pentosyl)-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(2-pentosyl, 6-O-rhamnosyl)-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(2-pentosyl)-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-glucuronide-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(2-rhamnosyl)-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-glucuronide-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 3-O-(2-pentosyl, 6-rhamnosyl)-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-(6-rhamnosyl)-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methoxy-trihydroxymethylenedioxyflavone O-glucuronyl-hexoside (compound 9 )": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3,5,3’,4’-Tetrahydroxy-6,7-methylenedioxyflavone-3-O-deoxyhexosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Malonyl derivative of compound 9": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Derivative of compound 9": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3,5,3’,4’-Tetrahydroxy-6,7-methylenedioxyflavone-3-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Unknown methylenedioxyflavone": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-glucuronyl-deoxyhexosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-glucuronyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Patuletin O-deoxyhexosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Patuletin O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-dideoxyhexoside-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-dideoxyhexoside-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-deoxyhexoside-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Digalloyl-glucose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Trigalloyl-glucose": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl apigenin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Iso)violanthin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Liquiritigenin apiosyl-glucoside isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-7-O-apiosylglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Formononetin-7-O-apiosylglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Neo)licuroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Unknown (chalcone derivative)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-dideoxyhexosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caftaric acid isomer": {
+    "cid": 6440397,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R,3R)-2-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy-3-hydroxybutanedioic acid",
+    "molecular_formula": "C13H12O9",
+    "molecular_weight": "312.23",
+    "status": "found",
+    "source": "pubchem_normalised:Caftaric acid"
+  },
+  "Apigenin 2′′-O-pentosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-6,8-di-C-glucoside(Vicenin II)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-2′′-O-rhamnoside-6′′-O-hexoside-C-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-6-C-hexosyl-8-C-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-7-O-glucosyl-8-C-glucoside (orientin-7-O-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolin 2′′-O-pentosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhametin-3-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhametin-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhametin-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-dexosyhexosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-rhamnosyl-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Salvianolic acid A isomer": {
+    "cid": 5281793,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R)-3-(3,4-dihydroxyphenyl)-2-[(E)-3-[2-[(E)-2-(3,4-dihydroxyphenyl)ethenyl]-3,4-dihydroxyphenyl]prop-2-enoyl]oxypropanoic acid",
+    "molecular_formula": "C26H22O10",
+    "molecular_weight": "494.4",
+    "status": "found",
+    "source": "pubchem_normalised:Salvianolic acid A"
+  },
+  "Lithospermic acid isomer": {
+    "cid": 6441498,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2S,3S)-4-[(E)-3-[(1R)-1-carboxy-2-(3,4-dihydroxyphenyl)ethoxy]-3-oxoprop-1-enyl]-2-(3,4-dihydroxyphenyl)-7-hydroxy-2,3-dihydro-1-benzofuran-3-carboxylic acid",
+    "molecular_formula": "C27H22O12",
+    "molecular_weight": "538.5",
+    "status": "found",
+    "source": "pubchem_normalised:Lithospermic acid"
+  },
+  "Salvianolic acid C isomer": {
+    "cid": 13991590,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R)-3-(3,4-dihydroxyphenyl)-2-[(E)-3-[2-(3,4-dihydroxyphenyl)-7-hydroxy-1-benzofuran-4-yl]prop-2-enoyl]oxypropanoic acid",
+    "molecular_formula": "C26H20O10",
+    "molecular_weight": "492.4",
+    "status": "found",
+    "source": "pubchem_normalised:Salvianolic acid C"
+  },
+  "Salvianolic acid E isomer": {
+    "cid": 86278266,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R)-2-[(E)-3-[2-[(E)-3-[(1R)-1-carboxy-2-(3,4-dihydroxyphenyl)ethoxy]-1-(3,4-dihydroxyphenyl)-3-oxoprop-1-en-2-yl]-3,4-dihydroxyphenyl]prop-2-enoyl]oxy-3-(3,4-dihydroxyphenyl)propanoic acid",
+    "molecular_formula": "C36H30O16",
+    "molecular_weight": "718.6",
+    "status": "found",
+    "source": "pubchem_normalised:Salvianolic acid E"
+  },
+  "Quercetin-3-O-(2,6-dirhamnosyl)galactoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2,6-dirhamnosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2,6-dirhamnosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-rhamnosyl)galactoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-rhamnosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(6-rhamnosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-rhamnosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(6-rhamnosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2-pentosyl, 6-O-rhamnosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-pentosyl, 6-O-rhamnosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(pentosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2-pentosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(6-rhamnosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-pentosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(pentosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Gomphrenol-3-O-(6-rhamnosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Gomphrenol-3-O-(6-pentosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-hexoside": {
+    "cid": 5318645,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "5,7-dihydroxy-2-(4-hydroxy-3-methoxyphenyl)-3-[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+    "molecular_formula": "C22H22O12",
+    "molecular_weight": "478.4",
+    "status": "found",
+    "source": "pubchem_normalised:Isorhamnetin-3-O-glucoside"
+  },
+  "Gomphrenol-3-O-(2-pentosyl,6-O-acetyl)hexosyde": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Gomphrenol-3-O-(6-acetyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-7-O-glucoronide-3´/4´-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Diosmetin-7-O-glucoronide-3´-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-7-O-glucoronide-4´-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-7-O-glucoronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-7-O-glucoronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Diosmetin-7-O-glucoronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-3´/4´-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Diosmetin-3-O-´pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-4´-O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-hexoside-7-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-Methyl-quercetin-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-Methyl-quercetin-O-glucuronide isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-Methyl-quercetin-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "diMethyl-quercetin-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-X-O-Hexoside-6-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-2''-O-Pentoside-6-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolin-2''-O-Pentoside-6-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-luteolin-2''-O-Pentoside-8-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-X-O-Hexoside-2''-O-Pentoside-6-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-X-O-Hexoside-2''-O-Pentoside-8-C-Hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Phenylcoumaran hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin-pentosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-pentosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis 3,5-O-Dicaffeoylquinic acid": {
+    "cid": 6474310,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "trans-(3R,5R)-3,5-bis[[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy]-1,4-dihydroxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C25H24O12",
+    "molecular_weight": "516.4",
+    "status": "found",
+    "source": "pubchem_normalised:3,5-O-Dicaffeoylquinic acid"
+  },
+  "Caffeoyl-O-feruloylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin 7-O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 7-O-hexoside": {
+    "cid": 5282160,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "2-(3,4-dihydroxyphenyl)-3,5-dihydroxy-7-[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+    "molecular_formula": "C21H20O12",
+    "molecular_weight": "464.4",
+    "status": "found",
+    "source": "pubchem_normalised:Quercetin 7-O-glucoside"
+  },
+  "Quercetin 3-O-[p-coumaroyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin (luteolin-6-C-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isovitexin ( apigenin-6-C-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoscoparin (chrysoeriol 6-C-glucoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol-6-C-glucoside-8-C-arabinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-glucoside (lutonarin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isovitexin-7-O-glucoside (saponarin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-2’’-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-2''-O-arabinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7,4'-di-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-gentiobioside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7,2''-di-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-sophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-[6-caffeoyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-[6-feruloyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-[6-p-coumaroyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isovitexin-7-O-[6-sinapoyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isovitexin-7-O-[6-feruloyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isovitexin-7-O-[6-p-coumaroyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoscoparin-7-O-[6-sinapoyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoscoparin-7-O-[6-feruloyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-[6-feruloyl]-glucoside-4'-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isovitexin-7-O-[6-sinapoyl]-glucoside-4'-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoscoparin-7-O-[6-sinapoyl]-glucoside-4'-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-glucoside-4'-O-[6-feruloyl]-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isoorientin-7-O-[6-feruloyl]-glucoside-2''-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Laricitrin O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Taxifolin O-pentoside isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dicaffeoyl acid 640 (diCA640)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dicaffeoyl acid 640 (diCA640) isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dicaffeoyl acid 654 (diCA654)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dicaffeoyl acid 622 (diCA622)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2-pentosyl-6-rhamnosyl)hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-rhamnosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-rhamnosyl-7,4´-di-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-rhamnosyl-7/4´-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5-dihydrocaffeoylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5-dihydromethoxycaffeoylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2,6-di-rhamnosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2,6-di-rhamnosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(Epi)catechin-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Procyanidin trimer (B- and A-type linkages)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "2’’-O-Rhamnosyl-C-hexosyl-apigenin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin O-pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "( + )-Gallocatechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "( + )-Catechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(−)-Epicatechin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "2″-O-Rhamnosyl-C-hexosyl-apigenin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Rosmarinic acid hexoside": {
+    "cid": 132604855,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] (2R)-3-(3,4-dihydroxyphenyl)-2-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxypropanoate",
+    "molecular_formula": "C24H26O13",
+    "molecular_weight": "522.5",
+    "status": "found",
+    "source": "pubchem_normalised:Rosmarinic acid glucoside"
+  },
+  "Sangerinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-O-hexosyl-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylluteolin-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p-Coumaroyl hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis 3-O-Caffeoylquinic acid": {
+    "cid": 1794427,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1S,3R,4R,5R)-3-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy-1,4,5-trihydroxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O9",
+    "molecular_weight": "354.31",
+    "status": "found",
+    "source": "pubchem_normalised:3-O-Caffeoylquinic acid"
+  },
+  "p-Coumaroyl acid dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "trans 3-O-Caffeoylquinic acid": {
+    "cid": 1794427,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1S,3R,4R,5R)-3-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy-1,4,5-trihydroxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O9",
+    "molecular_weight": "354.31",
+    "status": "found",
+    "source": "pubchem_normalised:3-O-Caffeoylquinic acid"
+  },
+  "trans 5-O-Caffeoylquinic acid": {
+    "cid": 5280633,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1R,3R,4S,5R)-3-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxy-1,4,5-trihydroxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O9",
+    "molecular_weight": "354.31",
+    "status": "found",
+    "source": "pubchem_normalised:5-O-Caffeoylquinic acid"
+  },
+  "Sinapic acid hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Ferulic acid dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-dihexoside-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-rutinoside (rutin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-rhamnoside (quercitrin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-galactoside (hyperoside)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-glucoside (isoquercitrin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis p-Coumaric acid derivative": {
+    "cid": 1549106,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(Z)-3-(4-hydroxyphenyl)prop-2-enoic acid",
+    "molecular_formula": "C9H8O3",
+    "molecular_weight": "164.16",
+    "status": "found",
+    "source": "pubchem_normalised:cis p-Coumaric acid"
+  },
+  "Caffeic acid hexoside I": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeic acid hexoside II": {
+    "status": "not_found",
+    "source": ""
+  },
+  "trans p-Coumaric acid hexoside": {
+    "cid": 9840292,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(E)-3-[4-[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxyphenyl]prop-2-enoic acid",
+    "molecular_formula": "C15H18O8",
+    "molecular_weight": "326.30",
+    "status": "found",
+    "source": "pubchem_normalised:p-Coumaric acid hexoside"
+  },
+  "cis p-Coumaric acid hexoside": {
+    "cid": 9840292,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(E)-3-[4-[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxyphenyl]prop-2-enoic acid",
+    "molecular_formula": "C15H18O8",
+    "molecular_weight": "326.30",
+    "status": "found",
+    "source": "pubchem_normalised:p-Coumaric acid hexoside"
+  },
+  "4-O-p-Coumarolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5-O-p-Coumarolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Syringic acid hexoside derivative": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Syringic acid hexoside": {
+    "cid": 14132338,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "3,5-dimethoxy-4-[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxybenzoic acid",
+    "molecular_formula": "C15H20O10",
+    "molecular_weight": "360.31",
+    "status": "found",
+    "source": "pubchem_normalised:Syringic acid glucoside"
+  },
+  "Quercetin-rutinoside pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-rutinoside pentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeoyl‐hexoside acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p‐Coumaroyl‐hexoside acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p‐Coumaroylquinic acid isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sinapoyl‐hexoside acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5‐O‐Feruloylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Feruloylquinic acid isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3‐O‐Caffeoylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sinapoyl derivative": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Feruloyl‐hexoside acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sinapoyl‐hexoside acid isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5‐O‐Caffeoylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 3-O-sophoroside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 3-O-gentiobioside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-triglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 3-O-pentoside-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol 3-O-pentoside-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-7-O-(2-rhamnosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-7-O-(2-rhamnosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2-hexosyl)hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2-glucosyl)glucoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-hexosyl, 6-rhamnosyl)hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-hexosyl)hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-glucosyl)glucoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-(2- xylosyl)galactoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-3-O-(2-glucosyl)glucoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-xylosyl, 6-rhamnosyl) galactoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-xylosyl)galactoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-xylosyl)glucoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-rhamnosyl)galactoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O- galactosyl-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(2-glucosyl)glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-glucosyl-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-sinapoyl-(2-hexosyl)]hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-feruloyl-(2-hexosyl)]hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-feruloyl-(2-hexosyl)]hexoside-7-O-rhamnoside isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-p-coumaroyl-(2-hexosyl)]hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-p-coumaroyl-(2-hexosyl)]hexoside-7-O-rhamnoside isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[2-p-coumaroyl-(-2-hexosyl)]hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[2-p-coumaroyl-(-2-hexosyl)]hexoside-7-O-rhamnoside isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[2-feruloyl-(-2-hexosyl)]hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-dihydrophaseoyl-(2-hexosyl)]hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-dihydrophaseoyl-(2-hexosyl)]hexoside-7-O-rhamnoside isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-dihydrophaseoyl-(2-hexosyl)](6-feruloyl)hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[2-dihydrophaseoyl-(2-xylosyl)]hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-dihydrophaseoyl-(2-hexosyl)](6-p-coumaroyl)hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-dihydrophaseoyl-(2-hexosyl)](6-feruloyl)hexoside-7-O-rhamnoside isomer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-dihydrophaseoyl)hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[2-malonyl-(2-hexosyl)hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-[6-malonyl-(6-hexosyl)]hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-(6-malonyl)hexoside-7-O-rhamnoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type epicatechin trimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "(C4,C8)-epicatechin tetramer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Phloretin-2’-O-xyloglucoside4": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Phlorizin (phloretin-2’-O-glucoside)4": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeic acid trimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Salvianolic acid B/E/L": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-O-diglucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Naringenin-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-7-O-diglucoronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-Orutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hesperetin-O- rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "p-Coumaric acid derivative": {
+    "cid": 637542,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(E)-3-(4-hydroxyphenyl)prop-2-enoic acid",
+    "molecular_formula": "C9H8O3",
+    "molecular_weight": "164.16",
+    "status": "found",
+    "source": "pubchem_normalised:p-Coumaric acid"
+  },
+  "Isosalvianolic acid A": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eriodictyol-O-deoxyhexosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hesperetin-O-deoxyhexosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-(3,4-dihydroxyphenyl)-lactic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sulphated rosmarinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Lithospermic acid A isomer": {
+    "cid": 6441498,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2S,3S)-4-[(E)-3-[(1R)-1-carboxy-2-(3,4-dihydroxyphenyl)ethoxy]-3-oxoprop-1-enyl]-2-(3,4-dihydroxyphenyl)-7-hydroxy-2,3-dihydro-1-benzofuran-3-carboxylic acid",
+    "molecular_formula": "C27H22O12",
+    "molecular_weight": "538.5",
+    "status": "found",
+    "source": "pubchem_normalised:Lithospermic acid A"
+  },
+  "Salvianolic acid B isomer": {
+    "cid": 6451084,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R)-2-[(E)-3-[(2S,3S)-3-[(1R)-1-carboxy-2-(3,4-dihydroxyphenyl)ethoxy]carbonyl-2-(3,4-dihydroxyphenyl)-7-hydroxy-2,3-dihydro-1-benzofuran-4-yl]prop-2-enoyl]oxy-3-(3,4-dihydroxyphenyl)propanoic acid",
+    "molecular_formula": "C36H30O16",
+    "molecular_weight": "718.6",
+    "status": "found",
+    "source": "pubchem_normalised:Salvianolic acid B"
+  },
+  "Salvianolic acid C derivative": {
+    "cid": 13991590,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R)-3-(3,4-dihydroxyphenyl)-2-[(E)-3-[2-(3,4-dihydroxyphenyl)-7-hydroxy-1-benzofuran-4-yl]prop-2-enoyl]oxypropanoic acid",
+    "molecular_formula": "C26H20O10",
+    "molecular_weight": "492.4",
+    "status": "found",
+    "source": "pubchem_normalised:Salvianolic acid C"
+  },
+  "Salvianolic acid F isomer": {
+    "cid": 10903113,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(E)-3-[2-[(E)-2-(3,4-dihydroxyphenyl)ethenyl]-3,4-dihydroxyphenyl]prop-2-enoic acid",
+    "molecular_formula": "C17H14O6",
+    "molecular_weight": "314.29",
+    "status": "found",
+    "source": "pubchem_normalised:Salvianolic acid F"
+  },
+  "Caftaric acid hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin-3’-O-glucuronide": {
+    "cid": 10253785,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2S,3S,4S,5R,6S)-6-[5-(5,7-dihydroxy-4-oxochromen-2-yl)-2-hydroxyphenoxy]-3,4,5-trihydroxyoxane-2-carboxylic acid",
+    "molecular_formula": "C21H18O12",
+    "molecular_weight": "462.4",
+    "status": "found",
+    "source": "pubchem_normalised:Luteolin-3'-O-glucuronide"
+  },
+  "cis Rosmarinic acid": {
+    "cid": 5281792,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R)-3-(3,4-dihydroxyphenyl)-2-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxypropanoic acid",
+    "molecular_formula": "C18H16O8",
+    "molecular_weight": "360.3",
+    "status": "found",
+    "source": "pubchem_normalised:Rosmarinic acid"
+  },
+  "trans Rosmarinic acid": {
+    "cid": 5281792,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R)-3-(3,4-dihydroxyphenyl)-2-[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl]oxypropanoic acid",
+    "molecular_formula": "C18H16O8",
+    "molecular_weight": "360.3",
+    "status": "found",
+    "source": "pubchem_normalised:Rosmarinic acid"
+  },
+  "Salvianolic acid C derivative I": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Salvianolic acid C derivative II": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Salvianolic acid C derivative III": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Salvianolic acid C derivative IV": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-(3,4-Dihydroxyphenyl)-lactic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-O-caffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "1,5-Dicaffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis-5-O-Caffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "trans-5-O-Caffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Ferulic acid hexoside dimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3,4-O-Dicaffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3,5-O-Dicaffeolyquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "1,3,5-O or 1,4,5-O-Tricaffeolyquinic": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin acetylhexoside hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin O-acylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin 7-O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Laricitrin rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Syringetin rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Hesperetin hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Yunnaneic acid D isomer": {
+    "cid": 10530480,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1R,2R,3S,4R,8R)-6-[(E)-3-[(1R)-1-carboxy-2-(3,4-dihydroxyphenyl)ethoxy]-3-oxoprop-1-enyl]-3-(3,4-dihydroxyphenyl)-8-hydroxy-7-oxobicyclo[2.2.2]oct-5-ene-2-carboxylic acid",
+    "molecular_formula": "C27H24O12",
+    "molecular_weight": "540.5",
+    "status": "found",
+    "source": "pubchem_normalised:Yunnaneic acid D"
+  },
+  "cis Rosmarinic acid isomer": {
+    "cid": 156024072,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[(E)-3-(3,4-dihydroxyphenyl)prop-2-enoyl] 3-(3,4-dihydroxyphenyl)-2-hydroxypropanoate",
+    "molecular_formula": "C18H16O8",
+    "molecular_weight": "360.3",
+    "status": "found",
+    "source": "pubchem_normalised:Rosmarinic acid isomer"
+  },
+  "4,9-di-CDOA (or 3,4 di-CDOA)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3-CDOA": {
+    "status": "not_found",
+    "source": ""
+  },
+  "3,4,9-Tri-CDOA": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Erigoster B (3,9-di-CDOA)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-7-O-acetylglucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhmanetin-O-dihexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhmanetin-O-acetylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeoylpentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Caffeoyl hexosylpentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Feruloyl hexosylpentoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Feruloyl rosmarinic acid derivative": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Chrysoeriol/diosmetin-7-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Sinapoylmalic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-hydroxyferuloylhexoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-sophoroside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-hydroxyferuloylhexoside-O-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Isorhamnetin-O-sophoroside-O-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-3-O-manolylhexoside-7-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-feruloylhexoside-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-feruloylhexoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-hydroxyferuloylglucuronide-O-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol-O-feruloylhexoside-O-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-3-O-manolylglucoside-7-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-sophoroside-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-coumaroylsophoroside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-sophoroside-O-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-dihexosyl-O-malonylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-sinapoylhexoside-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Salvianolic acid K isomer": {
+    "cid": 10482829,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(2R,3R)-2-[4-[(E)-3-[(1R)-1-carboxy-2-(3,4-dihydroxyphenyl)ethoxy]-3-oxoprop-1-enyl]-2-hydroxyphenoxy]-3-(3,4-dihydroxyphenyl)-3-hydroxypropanoic acid",
+    "molecular_formula": "C27H24O13",
+    "molecular_weight": "556.5",
+    "status": "found",
+    "source": "pubchem_normalised:Salvianolic acid K"
+  },
+  "Kaempferol-O-pentosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Acetyl quercetin-3-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylapigenin O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferol O-hexosyl-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Kaempferide O-glucuronide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Eridictyol": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Myricetin-6-C-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin deoxyhexosyl-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Genistein 7-O-glucoside (genistin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "5,5’-Dihydroxy-3’-methoxy-isoflavone-7-O-β-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylbiochanin A/methylprunetin O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methylbiochanin A/methylprunetin derivative": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Biochanin A O-hexoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Biochanin A 7-O-glucoside (sissotrin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Biochanin A O-acetylhexoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Biochanin A O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "4’-O- Methylgenistein (biochanin A)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "7-O-Methylgenistein (prunetin)": {
+    "status": "not_found",
+    "source": ""
+  },
+  "7-O-methylorobol": {
+    "cid": "",
+    "isomeric_smiles": "COc1cc(-c2coc3cc(O)cc(O)c3c2=O)ccc1O",
+    "canonical_smiles": "COc1cc(-c2coc3cc(O)cc(O)c3c2=O)ccc1O",
+    "iupac_name": "5,7-dihydroxy-3-(4-hydroxy-3-methoxyphenyl)-4H-chromen-4-one",
+    "molecular_formula": "C16H12O6",
+    "molecular_weight": "300.26349295993384",
+    "status": "found",
+    "source": "lotus_variant:methylorobol"
+  },
+  "Methylbiochanin A/ methylprunetin": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dihydroquercetin 6-C-hesoxide": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2’’-O-hexosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Luteolin 2’’-O-pentosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Apigenin-6-C-hexoside-7-O-hexoside": {
+    "cid": 4636593,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "5-hydroxy-2-(4-hydroxyphenyl)-6-[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]-7-[3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl]oxychromen-4-one",
+    "molecular_formula": "C27H30O15",
+    "molecular_weight": "594.5",
+    "status": "found",
+    "source": "pubchem_normalised:Apigenin-6-C-glucoside-7-O-glucoside"
+  },
+  "Metluteolin 2’’-O-pentosyl-6-C-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis 3-p-coumaroylquinic acid": {
+    "cid": 9945785,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1R,3R,4S,5R)-1,3,4-trihydroxy-5-[(E)-3-(4-hydroxyphenyl)prop-2-enoyl]oxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O8",
+    "molecular_weight": "338.31",
+    "status": "found",
+    "source": "pubchem_normalised:3-p-coumaroylquinic acid"
+  },
+  "trans 3-p-coumaroylquinic acid": {
+    "cid": 9945785,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "(1R,3R,4S,5R)-1,3,4-trihydroxy-5-[(E)-3-(4-hydroxyphenyl)prop-2-enoyl]oxycyclohexane-1-carboxylic acid",
+    "molecular_formula": "C16H18O8",
+    "molecular_weight": "338.31",
+    "status": "found",
+    "source": "pubchem_normalised:3-p-coumaroylquinic acid"
+  },
+  "Catechin hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Quercetin-O-rutinoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dihydrowogonin 7-O-glucoside/sakuranetin 5-O-glucoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Narigenin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Taxifolin-O-deoxyhexosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Taxifolin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis Caffeic acid hexoside": {
+    "cid": 5281761,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] (E)-3-(3,4-dihydroxyphenyl)prop-2-enoate",
+    "molecular_formula": "C15H18O9",
+    "molecular_weight": "342.30",
+    "status": "found",
+    "source": "pubchem_normalised:Caffeic acid hexoside"
+  },
+  "trans Caffeic acid hexoside": {
+    "cid": 5281761,
+    "isomeric_smiles": "",
+    "canonical_smiles": "",
+    "iupac_name": "[(2S,3R,4S,5S,6R)-3,4,5-trihydroxy-6-(hydroxymethyl)oxan-2-yl] (E)-3-(3,4-dihydroxyphenyl)prop-2-enoate",
+    "molecular_formula": "C15H18O9",
+    "molecular_weight": "342.30",
+    "status": "found",
+    "source": "pubchem_normalised:Caffeic acid hexoside"
+  },
+  "Kaempferol-O-rutinoside-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl quercetin-O-rutinoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Pinocembrin-O-pentosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Dihydrowogonin/sakuranetin-O-pentosylhexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl genistein": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Aromadendrin-7-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Aromadendrin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Methyl-aromadendrin-O-hexoside": {
+    "status": "not_found",
+    "source": ""
+  },
+  "cis 3-p-Coumarouylquinic acid": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)catechin dimer": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)catechin dimer2": {
+    "status": "not_found",
+    "source": ""
+  },
+  "Epicatechin2": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)catechin trimer2": {
+    "status": "not_found",
+    "source": ""
+  },
+  "B-type (epi)catechin tetramer2": {
+    "status": "not_found",
+    "source": ""
+  }
+}

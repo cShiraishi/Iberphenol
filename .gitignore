@@ -1,0 +1,21 @@
+# Large data files
+lotus_compounds.tsv
+*.tsv
+
+# Generated database
+platform/phenoldb.sqlite
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Claude internal
+.claude/
+
+# Temp files
+py2opsin_temp_input.txt
+
+# OS
+.DS_Store
+Thumbs.db
