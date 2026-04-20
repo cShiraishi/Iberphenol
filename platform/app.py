@@ -1,3 +1,10 @@
+import sys
+from pathlib import Path
+import os
+
+# Add the platform directory to sys.path so that 'database' and other local modules can be found
+sys.path.append(str(Path(__file__).parent))
+
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.staticfiles import StaticFiles
