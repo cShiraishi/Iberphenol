@@ -1,18 +1,16 @@
 import sys
-from pathlib import Path
 import os
+import importlib.util
+from pathlib import Path
 
-# Add the platform directory to the start of sys.path
-PLATFORM_DIR = str(Path(__file__).parent)
-if PLATFORM_DIR not in sys.path:
-    sys.path.insert(0, PLATFORM_DIR)
+# Surgical import of 'database.py' to avoid shadowing the standard 'platform' module
+DB_PATH = os.path.join(os.path.dirname(__file__), "database.py")
+spec = importlib.util.spec_from_file_location("database", DB_PATH)
+database = importlib.util.module_from_spec(spec)
+sys.modules["database"] = database
+spec.loader.exec_module(database)
 
-try:
-    import pydantic
-    print(f"DEBUG: Pydantic version {getattr(pydantic, '__version__', 'unknown')}")
-    print(f"DEBUG: Pydantic file {getattr(pydantic, '__file__', 'unknown')}")
-except Exception as e:
-    print(f"DEBUG: Pydantic check failed: {e}")
+from database import init_db, get_db
 
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Query, HTTPException
