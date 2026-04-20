@@ -2,8 +2,17 @@ import sys
 from pathlib import Path
 import os
 
-# Add the platform directory to sys.path so that 'database' and other local modules can be found
-sys.path.append(str(Path(__file__).parent))
+# Add the platform directory to the start of sys.path
+PLATFORM_DIR = str(Path(__file__).parent)
+if PLATFORM_DIR not in sys.path:
+    sys.path.insert(0, PLATFORM_DIR)
+
+try:
+    import pydantic
+    print(f"DEBUG: Pydantic version {getattr(pydantic, '__version__', 'unknown')}")
+    print(f"DEBUG: Pydantic file {getattr(pydantic, '__file__', 'unknown')}")
+except Exception as e:
+    print(f"DEBUG: Pydantic check failed: {e}")
 
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Query, HTTPException
