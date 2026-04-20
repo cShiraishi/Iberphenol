@@ -335,7 +335,7 @@ async def get_compound_detail(compound_id: int):
             f"""SELECT m.*, sa.plant_part, sa.origin, sa.cultivar_variety, sa.season,
                        sp.scientific_name,
                        me.equipment, me.data_acquisition, me.ionization_mode,
-                       r.citation
+                       r.citation, r.doi
                 FROM measurements m
                 LEFT JOIN samples sa ON m.sample_id = sa.id
                 LEFT JOIN species sp ON sa.species_id = sp.id
@@ -360,11 +360,23 @@ async def get_compound_detail(compound_id: int):
             [compound_id],
         )
 
+    # Fetch bioactivity linked to samples where this compound was found
+    bioactivity = _rows(
+        conn,
+        """SELECT b.*, sa.plant_part, sa.origin, sa.season, sp.scientific_name
+           FROM bioactivity b
+           JOIN samples sa ON b.sample_id = sa.id
+           JOIN species sp ON sa.species_id = sp.id
+           WHERE b.sample_id IN (SELECT DISTINCT sample_id FROM measurements WHERE compound_id = ?)""",
+        [compound_id]
+    )
+
     conn.close()
     return {
         "compound": dict(compound),
         "spectral": dict(spectral) if spectral else None,
         "measurements": measurements,
+        "bioactivity": bioactivity,
     }
 
 
