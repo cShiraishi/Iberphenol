@@ -254,6 +254,7 @@ async def get_plant_parts():
     return [r["plant_part"] for r in rows]
 
 
+@app.get("/api/map")
 @app.get("/api/locations")
 async def get_locations():
     conn = get_db()
