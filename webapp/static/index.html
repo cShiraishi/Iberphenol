@@ -6,11 +6,11 @@
 <title>iberPhenol — Research Platform</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="/static/tailwind.min.js"></script>
-<script src="/static/smiles-drawer.min.js"></script>
-<script src="/static/chart.umd.min.js"></script>
-<script src="/static/cytoscape.min.js"></script>
-<script defer src="/static/alpine.min.js"></script>
+<script src="/static/tailwind.min.js?v=2"></script>
+<script src="/static/smiles-drawer.min.js?v=2"></script>
+<script src="/static/chart.umd.min.js?v=2"></script>
+<script src="/static/cytoscape.min.js?v=2"></script>
+<script defer src="/static/alpine.min.js?v=2"></script>
 <style>
   [x-cloak]{display:none!important}
   body{background:#f8f8f8;color:#1f2937;font-family:'Inter',system-ui,sans-serif;}
@@ -1023,8 +1023,10 @@ tailwind.config={theme:{extend:{colors:{primary:'#c41e1e'}}}}
   <!-- ── MAP VIEW ──────────────────────────────────────────────────────── -->
   <section x-show="view==='map'" x-cloak style="position:fixed;top:56px;left:0;right:0;bottom:0;display:flex;z-index:20;">
     <!-- Map container -->
-    <div style="flex:1;position:relative;">
-      <div id="map" style="position:absolute;inset:0;"></div>
+    <div style="flex:1;position:relative;background:#f1f5f9;">
+      <div id="map" style="position:absolute;inset:0;min-height:500px;background:#eee;">
+         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#94a3b8;font-size:12px;">A carregar mapa…</div>
+      </div>
     </div>
     <!-- Side panel -->
     <div style="width:320px;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;background:#fff;border-left:1px solid #e5e7eb;z-index:1;">
@@ -1283,51 +1285,59 @@ function phenolDB() {
     },
 
     async loadMap() {
+      console.log("Iniciando carregamento do mapa...");
       await this.$nextTick();
-      await new Promise(function(r){ setTimeout(r, 150); });
-      if (this._map) { this._map.invalidateSize(); return; }
-
-      const mapEl = document.getElementById('map');
-      if (!mapEl) return;
-
-      this._map = L.map('map', { zoomControl: true }).setView([39.8, -7.8], 6);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors', maxZoom: 18
-      }).addTo(this._map);
-
-      const r = await fetch('/api/locations');
-      const locations = await r.json();
-      const self = this;
-
-      locations.forEach(function(loc) {
-        const size = Math.min(42, Math.max(20, 14 + Math.sqrt(loc.compounds_count) * 3));
-        const icon = L.divIcon({
-          className: '',
-          html: '<div class="map-marker-pulse" style="width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:#c41e1e;border:2px solid #fff;box-shadow:0 0 10px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;color:#fff;font-size:' + (size > 30 ? 11 : 9) + 'px;font-weight:700;">' + loc.compounds_count + '</div>',
-          iconSize: [size, size],
-          iconAnchor: [size/2, size/2],
-        });
-        const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(self._map);
-        
-        let popupHtml = '<div class="p-3 min-w-[200px] bg-slate-900 text-slate-200 rounded-lg border border-slate-700 shadow-xl">';
-        popupHtml += '<h3 class="text-sm font-bold text-emerald-400 mb-2 flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>' + loc.name + '</h3>';
-        popupHtml += '<div class="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-2">' + loc.species_count + ' espécies identificadas</div>';
-        
-        popupHtml += '<div class="space-y-1 mb-3">';
-        loc.species.slice(0, 5).forEach(function(s) {
-          popupHtml += '<div class="text-xs italic text-slate-300 hover:text-emerald-400 cursor-pointer flex items-center gap-1" onclick="window.dispatchJump(' + s.id + ')"><svg class="w-2.5 h-2.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"/></svg>' + s.scientific_name + '</div>';
-        });
-        if(loc.species.length > 5) popupHtml += '<div class="text-[9px] text-slate-500">... e mais ' + (loc.species.length - 5) + '</div>';
-        popupHtml += '</div>';
-        
-        popupHtml += '<button class="w-full py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-bold rounded transition-colors uppercase tracking-tight">Ver Tudo Localmente</button>';
-        popupHtml += '</div>';
-
-        marker.bindPopup(popupHtml, { className: 'custom-leaflet-popup', closeButton: false });
-      });
+      await new Promise(r => setTimeout(r, 400));
       
-      // Global jump dispatcher for marker popups
-      window.dispatchJump = (id) => this.jumpToSpecies(id);
+      const mapEl = document.getElementById('map');
+      if (!mapEl) {
+        console.error("Erro: Container #map não existe.");
+        return;
+      }
+
+      if (this._map) {
+        this._map.invalidateSize();
+        return;
+      }
+
+      try {
+        this._map = L.map('map', { zoomControl: true }).setView([39.8, -7.8], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap', maxZoom: 18
+        }).addTo(this._map);
+
+        const r = await fetch('/api/locations');
+        const locations = await r.json();
+        
+        locations.forEach(loc => {
+          if (!loc.lat || !loc.lng) return;
+          const size = Math.min(42, Math.max(20, 14 + Math.sqrt(loc.compounds_count) * 3));
+          const icon = L.divIcon({
+            className: '',
+            html: `<div class="map-marker-pulse" style="width:${size}px;height:${size}px;border-radius:50%;background:#c41e1e;border:2px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;font-size:${size > 30 ? 11 : 9}px;font-weight:700;">${loc.compounds_count}</div>`,
+            iconSize: [size, size],
+            iconAnchor: [size/2, size/2],
+          });
+          const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(this._map);
+          
+          let popup = `<div class="p-3 min-w-[200px] bg-slate-900 border border-slate-700 rounded-lg shadow-xl">
+            <h3 class="text-sm font-bold text-emerald-400 mb-2 truncate">${loc.name}</h3>
+            <div class="text-[10px] text-slate-500 font-bold mb-2 uppercase">${loc.species_count} espécies</div>`;
+          
+          loc.species.slice(0, 5).forEach(s => {
+            popup += `<div class="text-xs italic text-slate-300 hover:text-emerald-400 cursor-pointer py-0.5" onclick="window.dispatchJump(${s.id})">🌿 ${s.scientific_name}</div>`;
+          });
+          
+          popup += `<button class="w-full mt-2 py-1 bg-emerald-600 text-white text-[10px] font-bold rounded uppercase">Ver detalhes</button></div>`;
+          
+          marker.bindPopup(popup, { className: 'custom-leaflet-popup', closeButton: false });
+        });
+        
+        window.dispatchJump = (id) => this.jumpToSpecies(id);
+        console.log("Mapa carregado com sucesso.");
+      } catch (err) {
+        console.error("Falha ao inicializar o mapa:", err);
+      }
     },
 
     parseSpeciesLocations(origins) {
