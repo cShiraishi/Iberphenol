@@ -2,8 +2,6 @@
 lotus_compounds.tsv
 *.tsv
 
-# Generated database
-platform/phenoldb.sqlite
 
 # Python cache
 __pycache__/
