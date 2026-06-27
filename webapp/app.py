@@ -116,7 +116,9 @@ async def get_stats_detailed():
     top_species = _rows(conn, """
         SELECT sp.scientific_name, COUNT(DISTINCT c.id) as compound_count
         FROM species sp
-        JOIN compounds c ON c.species_id = sp.id
+        JOIN samples sa ON sa.species_id = sp.id
+        JOIN measurements m ON m.sample_id = sa.id
+        JOIN compounds c ON m.compound_id = c.id
         GROUP BY sp.id ORDER BY compound_count DESC LIMIT 10
     """)
 
@@ -442,8 +444,9 @@ async def get_species_compounds(species_id: int):
                   m.concentration_unit
            FROM compounds c
            LEFT JOIN chemical_data cd ON c.molecule_name = cd.molecule_name
-           LEFT JOIN measurements m ON c.id = m.compound_id
-           WHERE c.species_id = ?
+           JOIN measurements m ON c.id = m.compound_id
+           JOIN samples sa ON m.sample_id = sa.id
+           WHERE sa.species_id = ?
            GROUP BY c.id
            ORDER BY c.compound_class, c.molecule_name""",
         [species_id],
@@ -531,7 +534,7 @@ async def get_map_data():
         FROM samples sa
         JOIN measurements m ON m.sample_id = sa.id
         JOIN compounds c ON c.id = m.compound_id
-        JOIN species sp ON c.species_id = sp.id
+        JOIN species sp ON sa.species_id = sp.id
         WHERE sa.origin IS NOT NULL AND sa.origin != ''
     """)
     conn.close()
@@ -574,7 +577,7 @@ async def get_map_compounds(location: str = Query(...)):
         FROM samples sa
         JOIN measurements m ON m.sample_id = sa.id
         JOIN compounds c ON c.id = m.compound_id
-        JOIN species sp ON c.species_id = sp.id
+        JOIN species sp ON sa.species_id = sp.id
         LEFT JOIN chemical_data cd ON c.molecule_name = cd.molecule_name
         WHERE sa.origin IS NOT NULL
         ORDER BY c.compound_class, c.molecule_name
@@ -603,7 +606,7 @@ async def export_compounds(
         conds.append("c.molecule_name LIKE ?")
         params.append(f"%{search}%")
     if species_id:
-        conds.append("c.species_id = ?")
+        conds.append("sa.species_id = ?")
         params.append(species_id)
     if compound_class:
         conds.append("c.compound_class = ?")
@@ -620,11 +623,11 @@ async def export_compounds(
                    m.concentration_value, m.concentration_unit,
                    sa.plant_part, sa.origin, sa.season
             FROM compounds c
-            LEFT JOIN species sp ON c.species_id = sp.id
             LEFT JOIN chemical_data cd ON c.molecule_name = cd.molecule_name
             LEFT JOIN spectral_data sd ON sd.compound_id = c.id
             LEFT JOIN measurements m ON m.compound_id = c.id
             LEFT JOIN samples sa ON m.sample_id = sa.id
+            LEFT JOIN species sp ON sa.species_id = sp.id
             {where}
             ORDER BY c.compound_class, c.molecule_name""",
         params,

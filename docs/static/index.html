@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en" x-data="phenolDB()" x-init="init()">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>iberPhenol — Research Platform</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/static/tailwind.min.js?v=2"></script>
+<script src="/static/smiles-drawer.min.js?v=2"></script>
+<script src="/static/chart.umd.min.js?v=2"></script>
+<script src="/static/cytoscape.min.js?v=2"></script>
+<script defer src="/static/alpine.min.js?v=2"></script>
+<style>
+  [x-cloak]{display:none!important}
+  body{background:#f8f8f8;color:#1f2937;font-family:'Inter',system-ui,sans-serif;}
+  ::-webkit-scrollbar{width:6px;height:6px}
+  ::-webkit-scrollbar-track{background:#f1f1f1}
+  ::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;}
+  .tag{display:inline-block;padding:.15rem .5rem;border-radius:.375rem;font-size:.7rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
+  .tag-flavone{background:#dbeafe;color:#1d4ed8;}
+  .tag-phenolic{background:#dcfce7;color:#15803d;}
+  .tag-anthocyanin{background:#ede9fe;color:#7c3aed;}
+  .tag-default{background:#f3f4f6;color:#6b7280;border:1px solid #e5e7eb;}
+  .smiles-canvas{background:#fff;border-radius:.5rem;}
+  .slide-in{animation:slideIn .2s ease-out;}
+  @keyframes slideIn{from{transform:translateX(20px);opacity:0}to{transform:none;opacity:1}}
+  .pulse{animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+  input,select{background:#fff;border:1px solid #d1d5db;color:#1f2937;outline:none;}
+  input:focus,select:focus{border-color:#c41e1e;box-shadow:0 0 0 2px rgba(196,30,30,.15);}
+  .btn{cursor:pointer;transition:all .15s;border-radius:.5rem;font-weight:600;padding:.45rem 1rem;font-size:.85rem;}
+  .btn-primary{background:#c41e1e;color:#fff;}
+  .btn-primary:hover{background:#a31818;}
+  .btn-ghost{background:transparent;color:#6b7280;border:1px solid #d1d5db;}
+  .btn-ghost:hover{background:#f3f4f6;color:#1f2937;}
+  .compound-row:hover{background:#fef2f2;cursor:pointer;}
+  .compound-row.active{background:#fee2e2;border-left:3px solid #c41e1e;}
+  .tab-btn{padding:.4rem .9rem;border-radius:.5rem;font-size:.82rem;font-weight:500;color:#6b7280;cursor:pointer;transition:all .15s;}
+  .tab-btn.active{background:#c41e1e;color:#fff;}
+  .tab-btn:not(.active):hover{color:#1f2937;background:#f3f4f6;}
+  .stat-card{background:linear-gradient(135deg,#fff,#fef2f2);border:1px solid #fecaca;border-radius:.75rem;padding:1.25rem;}
+  .divider{border:none;border-top:1px solid #e5e7eb;margin:.75rem 0;}
+  .badge{display:inline-flex;align-items:center;gap:.25rem;background:#f3f4f6;color:#6b7280;border-radius:.375rem;padding:.2rem .55rem;font-size:.72rem;}
+  .tooltip{position:relative;}
+  .tooltip:hover::after{content:attr(data-tip);position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#1f2937;border:1px solid #e5e7eb;color:#fff;font-size:.72rem;padding:.3rem .6rem;border-radius:.375rem;white-space:nowrap;z-index:50;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .stats-hero{background:linear-gradient(135deg,#fff5f5 0%,#fff 50%,#f8f8f8 100%);border-bottom:1px solid #fecaca;}
+  .stats-kpi-card{background:linear-gradient(135deg,#fff 0%,#fef2f2 100%);border:1px solid #fecaca;border-radius:.75rem;padding:1.25rem;transition:transform .15s ease,border-color .15s ease;}
+  .stats-kpi-card:hover{transform:translateY(-2px);border-color:#fca5a5;}
+  .stats-kpi-icon{width:2.5rem;height:2.5rem;border-radius:.625rem;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+  .stats-chart-card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.5rem;}
+  .chart-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin:0;}
+  /* Tailwind overrides for light theme */
+  .text-white{color:#111827!important}
+  .text-slate-100{color:#1f2937!important}
+  .text-slate-200{color:#374151!important}
+  .text-slate-300{color:#4b5563!important}
+  .text-slate-400{color:#9ca3af!important}
+  .text-slate-500{color:#9ca3af!important}
+  .text-slate-600{color:#6b7280!important}
+  .text-indigo-300,.text-indigo-400{color:#c41e1e!important}
+  .hover\:text-white:hover,.hover\:text-indigo-300:hover{color:#a31818!important}
+  .text-emerald-300,.text-emerald-400{color:#047857!important}
+  .text-amber-400{color:#b45309!important}
+  .text-cyan-400{color:#0891b2!important}
+  .border-slate-700,.border-slate-800{border-color:#e5e7eb!important}
+  .bg-slate-800{background:#f1f5f9!important}
+  .bg-indigo-600{background:#c41e1e!important}
+  .custom-leaflet-popup .leaflet-popup-content-wrapper { background: #111827; color: #fff; border: 1px solid #374151; padding: 0; border-radius: 8px; }
+  .custom-leaflet-popup .leaflet-popup-tip { background: #111827; border: 1px solid #374151; }
+  .map-marker-pulse { animation: mapPulse 2s infinite; cursor: pointer; }
+  @keyframes mapPulse { 0% { box-shadow: 0 0 0 0 rgba(196,30,30,0.4); } 70% { box-shadow: 0 0 0 10px rgba(196,30,30,0); } 100% { box-shadow: 0 0 0 0 rgba(196,30,30,0); } }
+</style>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#c41e1e'}}}}
+</script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+<!-- ── NAVBAR ─────────────────────────────────────────────────────────── -->
+<header class="sticky top-0 z-50 border-b border-slate-800" style="background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.07);">
+  <div class="max-w-screen-2xl mx-auto px-4 h-14 flex items-center gap-4">
+    <!-- Logo -->
+    <div class="flex items-center gap-2 shrink-0">
+      <img src="/static/logo.png" alt="iberPhenol" style="height:36px;width:auto;"/>
+      <span class="text-xs text-slate-500 hidden sm:block">Research Platform</span>
+    </div>
+
+    <!-- Global search -->
+    <div class="flex-1 max-w-xl relative">
+      <input
+        type="text"
+        placeholder="Search compounds, formulae, classes…"
+        class="w-full rounded-lg px-4 py-2 text-sm pl-9"
+        x-model.debounce.300ms="filters.search"
+        @input="page=1; fetchCompounds()"
+        @keydown.escape="filters.search=''; fetchCompounds()"
+      />
+      <svg class="absolute left-3 top-2.5 w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+      </svg>
+      <button x-show="filters.search" @click="filters.search=''; fetchCompounds()" class="absolute right-2.5 top-2 text-slate-500 hover:text-white text-lg leading-none">&times;</button>
+    </div>
+
+    <!-- Nav tabs -->
+    <nav class="flex gap-1 shrink-0">
+      <button class="tab-btn" :class="{active: view==='search'}" @click="view='search'">Compounds</button>
+      <button class="tab-btn" :class="{active: view==='species'}" @click="view='species'; loadSpeciesView()">Species</button>
+      <button class="tab-btn" :class="{active: view==='stats'}" @click="view='stats'; loadDetailedStats()">Statistics</button>
+      <button class="tab-btn" :class="{active: view==='map'}" @click="view='map'; loadMap()">Map</button>
+    </nav>
+
+    <!-- Export btn -->
+    <a :href="exportUrl" class="btn btn-ghost shrink-0 flex items-center gap-1.5 no-underline" title="Export current filter as CSV">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+      </svg>
+      Export CSV
+    </a>
+  </div>
+</header>
+
+<!-- ── MAIN ───────────────────────────────────────────────────────────── -->
+<div class="flex flex-1 max-w-screen-2xl mx-auto w-full">
+
+  <!-- ── SIDEBAR ──────────────────────────────────────────────────────── -->
+  <aside class="w-60 shrink-0 border-r border-slate-800 p-4 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto" x-show="view==='search'" x-cloak>
+
+    <!-- Filters heading -->
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Filters</span>
+      <button @click="clearFilters()" class="text-xs text-indigo-400 hover:text-indigo-300" x-show="hasFilters">Clear all</button>
+    </div>
+
+    <!-- Species filter -->
+    <div class="mb-4">
+      <label class="block text-xs text-slate-400 mb-1 font-medium">Plant Species</label>
+      <select class="w-full rounded-lg px-3 py-2 text-sm" x-model="filters.species_id" @change="page=1; fetchCompounds()">
+        <option value="">All species</option>
+        <template x-for="s in speciesList" :key="s.id">
+          <option :value="s.id" x-text="s.scientific_name"></option>
+        </template>
+      </select>
+    </div>
+
+    <!-- Compound class filter -->
+    <div class="mb-4">
+      <label class="block text-xs text-slate-400 mb-1 font-medium">Compound Class</label>
+      <select class="w-full rounded-lg px-3 py-2 text-sm" x-model="filters.compound_class" @change="page=1; fetchCompounds()">
+        <option value="">All classes</option>
+        <template x-for="cls in uniqueClasses" :key="cls">
+          <option :value="cls" x-text="cls"></option>
+        </template>
+      </select>
+    </div>
+
+    <!-- Plant part filter -->
+    <div class="mb-4">
+      <label class="block text-xs text-slate-400 mb-1 font-medium">Plant Part</label>
+      <select class="w-full rounded-lg px-3 py-2 text-sm" x-model="filters.plant_part" @change="page=1; fetchCompounds()">
+        <option value="">All parts</option>
+        <template x-for="p in plantParts" :key="p">
+          <option :value="p" x-text="p"></option>
+        </template>
+      </select>
+    </div>
+
+    <!-- Has structure toggle -->
+    <label class="flex items-center gap-2 cursor-pointer mb-5">
+      <input type="checkbox" x-model="filters.has_structure" @change="page=1; fetchCompounds()" class="w-4 h-4 rounded accent-red-700"/>
+      <span class="text-sm text-slate-300">Has 2D structure</span>
+    </label>
+
+    <hr class="divider"/>
+
+    <!-- Mini stats -->
+    <div class="space-y-1.5 text-xs text-slate-400">
+      <div class="flex justify-between">
+        <span>Total compounds</span>
+        <span class="text-slate-200 font-semibold" x-text="dbStats.compounds ?? '…'"></span>
+      </div>
+      <div class="flex justify-between">
+        <span>Species</span>
+        <span class="text-slate-200 font-semibold" x-text="dbStats.species ?? '…'"></span>
+      </div>
+      <div class="flex justify-between">
+        <span>Measurements</span>
+        <span class="text-slate-200 font-semibold" x-text="dbStats.measurements ?? '…'"></span>
+      </div>
+      <div class="flex justify-between">
+        <span>With structure</span>
+        <span class="text-emerald-400 font-semibold" x-text="dbStats.compounds_with_structure ?? '…'"></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── COMPOUND LIST VIEW ────────────────────────────────────────────── -->
+  <section class="flex-1 flex overflow-hidden" x-show="view==='search'" x-cloak>
+
+    <!-- List panel -->
+    <div :class="detail ? 'w-[42%]' : 'w-full'" class="flex flex-col border-r border-slate-800 transition-all duration-200">
+
+      <!-- List header -->
+      <div class="px-4 py-3 border-b border-slate-800 flex items-center justify-between shrink-0">
+        <span class="text-sm text-slate-400">
+          <template x-if="!loading">
+            <span><strong class="text-white" x-text="total.toLocaleString()"></strong> compounds</span>
+          </template>
+          <span x-show="loading" class="pulse">Loading…</span>
+        </span>
+        <!-- View toggle -->
+        <div class="flex gap-1">
+          <button class="tab-btn py-1 px-2" :class="{active: listView==='table'}" @click="listView='table'">Table</button>
+          <button class="tab-btn py-1 px-2" :class="{active: listView==='grid'}" @click="listView='grid'">Grid</button>
+        </div>
+      </div>
+
+      <!-- TABLE VIEW -->
+      <div class="flex-1 overflow-y-auto" x-show="listView==='table'">
+        <table class="w-full text-sm">
+          <thead class="sticky top-0 z-10" style="background:#f9fafb;">
+            <tr class="text-left text-xs text-slate-400 uppercase tracking-wide border-b border-slate-700">
+              <th class="px-4 py-2.5 font-medium">Compound</th>
+              <th class="px-2 py-2.5 font-medium" :style="detail ? 'display:none' : ''">Class</th>
+              <th class="px-2 py-2.5 font-medium" :style="detail ? 'display:none' : ''">Species</th>
+              <th class="px-2 py-2.5 font-medium" :style="detail ? 'display:none' : ''">Formula</th>
+              <th class="px-2 py-2.5 font-medium">ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="c in compounds" :key="c.id">
+              <tr class="compound-row border-b border-slate-800/50"
+                  :class="{active: detail && detail.compound && detail.compound.id === c.id}"
+                  @click="selectCompound(c.id)">
+                <td class="px-4 py-2.5">
+                  <div class="font-medium text-slate-100 truncate max-w-[200px]" :title="c.molecule_name" x-text="c.molecule_name"></div>
+                  <div class="text-xs text-slate-500 truncate" x-text="c.subclass || ''"></div>
+                </td>
+                <td class="px-2 py-2.5" :style="detail ? 'display:none' : ''">
+                  <span class="tag" :class="classTag(c.compound_class)" x-text="c.compound_class || '—'"></span>
+                </td>
+                <td class="px-2 py-2.5 text-xs text-slate-400 italic truncate max-w-[150px]" :style="detail ? 'display:none' : ''" x-text="c.scientific_name || '—'"></td>
+                <td class="px-2 py-2.5 text-xs font-mono text-slate-300" :style="detail ? 'display:none' : ''" x-text="c.molecular_formula || '—'"></td>
+                <td class="px-2 py-2.5 text-xs text-slate-500" x-text="c.id"></td>
+              </tr>
+            </template>
+            <tr x-show="compounds.length === 0 && !loading">
+              <td colspan="5" class="text-center py-16 text-slate-500">No compounds match your filters.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- GRID VIEW -->
+      <div class="flex-1 overflow-y-auto p-4 grid gap-3" x-show="listView==='grid'"
+           style="grid-template-columns: repeat(auto-fill, minmax(200px,1fr))">
+        <template x-for="c in compounds" :key="c.id">
+          <div class="card p-3 cursor-pointer hover:border-red-400 transition-colors"
+               :class="{'border-red-400': detail && detail.compound && detail.compound.id === c.id}"
+               @click="selectCompound(c.id)">
+            <!-- Estrutura 2D -->
+            <div class="h-32 flex items-center justify-center mb-2 rounded-lg overflow-hidden" style="background:#f3f4f6;">
+              <img x-show="c.cid"
+                   :src="c.cid ? 'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/' + c.cid + '/PNG?image_size=180x120' : ''"
+                   style="max-width:100%;max-height:120px;"/>
+              <span x-show="!c.cid" class="text-slate-600 text-xs">Sem estrutura</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-200 truncate" x-text="c.molecule_name" :title="c.molecule_name"></div>
+            <div class="text-xs text-slate-500 mt-0.5 font-mono" x-text="c.molecular_formula || ''"></div>
+            <span class="tag mt-1" :class="classTag(c.compound_class)" x-text="c.compound_class || 'Unknown'"></span>
+          </div>
+        </template>
+      </div>
+
+      <!-- Pagination -->
+      <div class="px-4 py-3 border-t border-slate-800 flex items-center justify-between shrink-0 text-sm">
+        <button class="btn btn-ghost py-1.5" @click="prevPage()" :disabled="page <= 1" :class="{'opacity-30': page<=1}">← Prev</button>
+        <span class="text-slate-400">Page <strong class="text-white" x-text="page"></strong> / <span x-text="totalPages"></span></span>
+        <button class="btn btn-ghost py-1.5" @click="nextPage()" :disabled="page >= totalPages" :class="{'opacity-30': page>=totalPages}">Next →</button>
+      </div>
+    </div>
+
+    <!-- ── DETAIL PANEL ──────────────────────────────────────────────── -->
+    <div class="flex-1 overflow-y-auto slide-in" x-show="detail" x-cloak>
+      <template x-if="detail">
+        <div class="p-5">
+          <!-- Close + title -->
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h2 class="text-xl font-bold text-white leading-tight" x-text="detail.compound.molecule_name"></h2>
+              <p class="text-sm text-slate-400 italic mt-0.5" x-text="detail.compound.scientific_name || ''"></p>
+            </div>
+            <button @click="detail=null" class="text-slate-500 hover:text-white text-2xl leading-none ml-4">&times;</button>
+          </div>
+
+          <!-- Quick info badges -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge" x-show="detail.compound.compound_class">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+              <span x-text="detail.compound.compound_class"></span>
+            </span>
+            <span class="badge" x-show="detail.compound.molecular_formula">
+              <span x-text="detail.compound.molecular_formula"></span>
+            </span>
+            <span class="badge" x-show="detail.compound.molecular_weight">
+              <span x-text="detail.compound.molecular_weight + ' g/mol'"></span>
+            </span>
+            <span class="badge" x-show="detail.compound.cid">
+              CID: <span x-text="detail.compound.cid"></span>
+            </span>
+            <span class="badge" :class="detail.compound.status==='found' ? 'text-emerald-400' : 'text-amber-400'" x-text="detail.compound.status || 'unknown'"></span>
+          </div>
+
+          <!-- Detail tabs -->
+          <div class="flex gap-1 mb-4 border-b border-slate-700 pb-2">
+            <button class="tab-btn" :class="{active: detailTab==='overview'}" @click="detailTab='overview'">Overview</button>
+            <button class="tab-btn" :class="{active: detailTab==='structure'}" @click="detailTab='structure'">Structure</button>
+            <button class="tab-btn" :class="{active: detailTab==='spectral'}" @click="detailTab='spectral'">Spectral</button>
+            <button class="tab-btn" :class="{active: detailTab==='measurements'}" @click="detailTab='measurements'; setTimeout(()=>renderChart(), 50)">Measurements</button>
+            <button class="tab-btn" :class="{active: detailTab==='bioactivity'}" @click="detailTab='bioactivity'">Bioactivity</button>
+          </div>
+
+          <!-- ── OVERVIEW TAB ──────────────────────────────────────────── -->
+          <div x-show="detailTab==='overview'">
+            <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+              <div class="card p-3">
+                <div class="text-xs text-slate-400 mb-0.5">IUPAC Name</div>
+                <div class="text-slate-200 text-xs leading-relaxed" x-text="detail.compound.iupac_name || 'N/A'"></div>
+              </div>
+              <div class="card p-3">
+                <div class="text-xs text-slate-400 mb-0.5">Source DB</div>
+                <div class="text-slate-200 text-xs" x-text="detail.compound.source || 'N/A'"></div>
+              </div>
+              <div class="card p-3">
+                <div class="text-xs text-slate-400 mb-0.5">Subclass</div>
+                <div class="text-slate-200" x-text="detail.compound.subclass || 'N/A'"></div>
+              </div>
+              <div class="card p-3">
+                <div class="text-xs text-slate-400 mb-0.5">Measurements</div>
+                <div class="text-slate-200 font-semibold" x-text="detail.measurements.length"></div>
+              </div>
+            </div>
+
+            <!-- SMILES display -->
+            <div class="card p-3 mb-3" x-show="detail.compound.smiles">
+              <div class="text-xs text-slate-400 mb-1">SMILES</div>
+              <code class="text-xs text-indigo-300 break-all" x-text="detail.compound.smiles"></code>
+            </div>
+
+            <!-- External links -->
+            <div class="flex gap-2 flex-wrap">
+              <a x-show="detail.compound.cid" :href="'https://pubchem.ncbi.nlm.nih.gov/compound/' + detail.compound.cid" target="_blank"
+                 class="btn btn-ghost text-xs flex items-center gap-1">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                PubChem
+              </a>
+            </div>
+          </div>
+
+          <!-- ── STRUCTURE TAB ─────────────────────────────────────────── -->
+          <div x-show="detailTab==='structure'">
+            <div x-show="detail.compound.cid" class="card p-4 flex flex-col items-center gap-3">
+              <img :src="'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/' + detail.compound.cid + '/PNG?image_size=400x300'"
+                   alt="2D Structure" style="max-width:100%;border-radius:.5rem;"/>
+              <span class="text-xs text-slate-500">PubChem CID <span x-text="detail.compound.cid"></span></span>
+            </div>
+            <div x-show="!detail.compound.cid" class="card p-10 flex flex-col items-center gap-2 text-slate-500">
+              <svg class="w-12 h-12 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-sm">Sem dados estruturais disponíveis</span>
+            </div>
+          </div>
+
+          <!-- ── SPECTRAL TAB ──────────────────────────────────────────── -->
+          <div x-show="detailTab==='spectral'">
+            <template x-if="detail.spectral">
+              <div class="space-y-3">
+                <!-- UV-Vis -->
+                <div class="card p-4">
+                  <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">UV-Vis Data</h4>
+                  <div class="grid grid-cols-2 gap-2 text-sm">
+                    <div>
+                      <div class="text-xs text-slate-500">λmax (nm)</div>
+                      <div class="text-white font-mono font-semibold" x-text="detail.spectral.lambda_max_nm || '—'"></div>
+                    </div>
+                    <div>
+                      <div class="text-xs text-slate-500">UV-Vis Spectrum</div>
+                      <div class="text-slate-300 text-xs" x-text="detail.spectral.uv_vis_spectrum || '—'"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Mass spec -->
+                <div class="card p-4">
+                  <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Mass Spectrometry</h4>
+                  <div class="grid grid-cols-2 gap-2 text-sm">
+                    <template x-for="[label, val] in [
+                      ['Exact Mass', detail.spectral.exact_mass],
+                      ['Mol. Weight', detail.spectral.molecular_weight],
+                      ['[M]⁺', detail.spectral.m_plus],
+                      ['[M+H]⁺', detail.spectral.m_plus_h],
+                      ['[M−H]⁻', detail.spectral.m_minus_h],
+                      ['[2M+H]⁺', detail.spectral.m2_plus_h],
+                      ['[2M−H]⁻', detail.spectral.m2_minus_h],
+                      ['[M−H]²⁻', detail.spectral.m_minus_h_2neg],
+                      ['[M−H]³⁻', detail.spectral.m_minus_h_3neg],
+                    ]" :key="label">
+                      <div x-show="val && val !== '' && val !== null">
+                        <div class="text-xs text-slate-500" x-text="label"></div>
+                        <div class="font-mono text-slate-200 text-sm" x-text="val"></div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+                <!-- Adducts & fragments -->
+                <div class="card p-4" x-show="detail.spectral.adducts || detail.spectral.ms_fragments">
+                  <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Adducts & Fragments</h4>
+                  <div x-show="detail.spectral.adducts" class="mb-2">
+                    <div class="text-xs text-slate-500 mb-1">Adducts</div>
+                    <div class="font-mono text-xs text-slate-300" x-text="detail.spectral.adducts"></div>
+                  </div>
+                  <div x-show="detail.spectral.ms_fragments">
+                    <div class="text-xs text-slate-500 mb-1">MS Fragments (m/z)</div>
+                    <div class="font-mono text-xs text-indigo-300 leading-relaxed" x-text="detail.spectral.ms_fragments"></div>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <div x-show="!detail.spectral" class="py-12 text-center text-slate-500 text-sm">No spectral data available.</div>
+          </div>
+
+          <!-- ── MEASUREMENTS TAB ──────────────────────────────────────── -->
+          <div x-show="detailTab==='measurements'">
+            <template x-if="detail.measurements.length > 0">
+              <div>
+                <!-- Chart -->
+                <div class="card p-4 mb-4" style="height:240px;">
+                  <canvas id="conc-chart"></canvas>
+                </div>
+                <!-- Table -->
+                <div class="overflow-x-auto">
+                  <table class="w-full text-xs">
+                    <thead>
+                      <tr class="text-left text-slate-400 border-b border-slate-700">
+                        <th class="py-2 pr-3">Species</th>
+                        <th class="py-2 pr-3">Concentration</th>
+                        <th class="py-2 pr-3">Part</th>
+                        <th class="py-2 pr-3">Origin</th>
+                        <th class="py-2 pr-3">Season</th>
+                        <th class="py-2 pr-3">Equipment</th>
+                        <th class="py-2">Reference</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <template x-for="m in detail.measurements" :key="m.id">
+                        <tr class="border-b border-slate-800/60">
+                          <td class="py-1.5 pr-3 italic text-slate-300 cursor-pointer hover:text-emerald-400 decoration-emerald-500/30 hover:underline underline-offset-4 transition-all" 
+                              @click="jumpToSpecies(m.species_id)"
+                              x-text="m.scientific_name || '—'"></td>
+                          <td class="py-1.5 pr-3 font-mono text-emerald-300" x-text="(m.concentration_value || '—') + (m.concentration_unit ? ' ' + m.concentration_unit : '')"></td>
+                          <td class="py-1.5 pr-3 text-slate-400" x-text="m.plant_part || '—'"></td>
+                          <td class="py-1.5 pr-3 text-slate-400" x-text="m.origin || '—'"></td>
+                          <td class="py-1.5 pr-3 text-slate-400" x-text="m.season || '—'"></td>
+                          <td class="py-1.5 pr-3 text-slate-500 text-xs truncate max-w-[120px]" x-text="m.equipment || '—'" :title="m.equipment"></td>
+                          <td class="py-1.5 text-slate-400 text-xs">
+                             <div class="flex items-center gap-1.5">
+                               <span class="truncate max-w-[150px]" x-text="m.citation || '—'" :title="m.citation"></span>
+                               <a x-show="m.doi" :href="'https://doi.org/' + m.doi" target="_blank" class="text-primary hover:text-red-400" title="View Article (DOI)">
+                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                               </a>
+                             </div>
+                          </td>
+                        </tr>
+                      </template>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </template>
+            <div x-show="detail.measurements.length === 0" class="py-12 text-center text-slate-500 text-sm">No concentration measurements available.</div>
+          </div>
+
+          <!-- ── BIOACTIVITY TAB ───────────────────────────────────────── -->
+          <div x-show="detailTab==='bioactivity'" x-cloak>
+            <template x-if="detail.bioactivity.length > 0">
+              <div class="space-y-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Biological Potential found in Extracts</span>
+                </div>
+                <div class="grid gap-3">
+                  <template x-for="b in detail.bioactivity" :key="b.id">
+                    <div class="card p-3 border-l-4 border-emerald-500 bg-emerald-950/5">
+                      <div class="flex justify-between items-start">
+                        <div>
+                          <div class="flex items-center gap-2 mb-1">
+                            <span class="tag bg-emerald-100/10 text-emerald-500 border border-emerald-500/20" x-text="b.bioactivity_type"></span>
+                            <span class="text-xs font-bold text-slate-200" x-text="b.assay_type"></span>
+                          </div>
+                          <div class="text-[10px] text-slate-500 uppercase tracking-wide">
+                            <span x-text="b.scientific_name"></span> &bull; <span x-text="b.plant_part"></span> &bull; <span x-text="b.origin"></span>
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <div class="text-xl font-mono font-bold text-white" x-text="b.value"></div>
+                          <div class="text-[10px] text-slate-500 font-bold uppercase" x-text="b.unit"></div>
+                        </div>
+                      </div>
+                      <div x-show="b.notes" class="mt-2 text-xs text-slate-400 border-t border-slate-800 pt-2" x-text="'Ref: ' + b.notes"></div>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </template>
+            <div x-show="detail.bioactivity.length === 0" class="py-12 text-center text-slate-500 text-sm">
+              <svg class="w-12 h-12 text-slate-800 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              No specific bioactivity data available for the extracts containing this compound.
+            </div>
+          </div>
+
+        </div><!-- /p-5 -->
+      </template>
+    </div><!-- /detail panel -->
+
+  </section><!-- /search view -->
+
+
+  <!-- ── SPECIES VIEW ────────────────────────────────────────────────── -->
+  <section class="flex-1 overflow-y-auto" x-show="view==='species'" x-cloak>
+
+    <!-- Sticky tab header -->
+    <div class="sticky top-0 z-10 px-6 pt-5 pb-0 border-b border-slate-800" style="background:#fff;">
+      <div class="flex items-center gap-3 mb-4">
+        <h2 class="text-2xl font-bold text-white">Plant Species</h2>
+        <span class="text-xs text-slate-500 font-mono" x-text="speciesList.length + ' species'"></span>
+      </div>
+      <div class="flex gap-1">
+        <button class="tab-btn" :class="{active: speciesTab==='explorer'}"
+                @click="speciesTab='explorer'">
+          Explorer
+        </button>
+        <button class="tab-btn flex items-center gap-1.5" :class="{active: speciesTab==='graph'}"
+                @click="speciesTab='graph'; loadSpeciesGraph()">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+          </svg>
+          Network Analysis
+        </button>
+      </div>
+    </div>
+
+    <!-- ── EXPLORER TAB ────────────────────────────────────────────── -->
+    <div class="p-6" x-show="speciesTab==='explorer'">
+
+      <!-- Species grid -->
+      <div x-show="!selectedSpeciesDetail" class="grid gap-4" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
+        <template x-for="s in speciesList" :key="s.id">
+          <div class="card p-4 cursor-pointer hover:border-indigo-500 transition-colors"
+               @click="loadSpeciesDetail(s)">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-lg bg-emerald-900/40 border border-emerald-700/30 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold text-slate-100 italic leading-snug" x-text="s.scientific_name"></div>
+                <!-- Location tags -->
+                <div class="mt-2 flex flex-wrap gap-1" x-show="(s.origins||[]).length > 0">
+                  <template x-for="(loc, li) in parseSpeciesLocations(s.origins||[]).slice(0,3)" :key="li">
+                    <span class="inline-flex items-center gap-1 text-xs rounded px-1.5 py-0.5"
+                          style="background:rgba(52,183,136,.1);color:#74c69d;border:1px solid rgba(52,183,136,.2);">
+                      <svg class="w-2.5 h-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                      </svg>
+                      <span x-text="loc"></span>
+                    </span>
+                  </template>
+                  <span x-show="parseSpeciesLocations(s.origins||[]).length > 3"
+                        class="text-xs text-slate-500 self-center"
+                        x-text="'+' + (parseSpeciesLocations(s.origins||[]).length - 3) + ' more'"></span>
+                </div>
+                <div x-show="(s.origins||[]).length === 0" class="text-xs text-slate-600 mt-1">No location data</div>
+              </div>
+            </div>
+            <div class="mt-3 flex justify-end">
+              <span class="text-xs text-indigo-400">View compounds →</span>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- Species detail -->
+      <div x-show="selectedSpeciesDetail" x-cloak>
+        <div class="flex items-center gap-3 mb-6">
+          <button class="btn btn-ghost py-1.5" @click="selectedSpeciesDetail=null">← Back to species</button>
+          <h3 class="text-xl font-bold text-white italic" x-text="selectedSpeciesDetail && selectedSpeciesDetail.scientific_name"></h3>
+        </div>
+        <div x-show="speciesCompounds.length > 0">
+          <div class="text-sm text-slate-400 mb-4">
+            <strong class="text-white" x-text="speciesCompounds.length"></strong> compounds identified
+          </div>
+          <div class="card overflow-hidden">
+            <table class="w-full text-sm">
+              <thead class="border-b border-slate-700">
+                <tr class="text-xs text-slate-400 uppercase tracking-wide text-left">
+                  <th class="px-4 py-3">Compound</th>
+                  <th class="px-3 py-3">Class</th>
+                  <th class="px-3 py-3">Formula</th>
+                  <th class="px-3 py-3 text-right">Max Conc.</th>
+                  <th class="px-3 py-3 text-right">Measurements</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template x-for="c in speciesCompounds" :key="c.id">
+                  <tr class="compound-row border-b border-slate-800/50 cursor-pointer"
+                      @click="view='search'; $nextTick(()=>selectCompound(c.id))">
+                    <td class="px-4 py-2.5">
+                      <div class="font-medium text-slate-100" x-text="c.molecule_name"></div>
+                      <div class="text-xs text-slate-500" x-text="c.subclass || ''"></div>
+                    </td>
+                    <td class="px-3 py-2.5">
+                      <span class="tag" :class="classTag(c.compound_class)" x-text="c.compound_class || '—'"></span>
+                    </td>
+                    <td class="px-3 py-2.5 font-mono text-xs text-slate-300" x-text="c.molecular_formula || '—'"></td>
+                    <td class="px-3 py-2.5 text-right font-mono text-emerald-300 text-xs" x-text="c.max_concentration ? Number(c.max_concentration).toFixed(3) : '—'"></td>
+                    <td class="px-3 py-2.5 text-right text-slate-400 text-xs" x-text="c.measurement_count || 0"></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── NETWORK ANALYSIS TAB ────────────────────────────────────── -->
+    <div class="p-6" x-show="speciesTab==='graph'" x-cloak>
+
+      <!-- Controls bar -->
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <div class="flex gap-1 rounded-lg p-1" style="background:#1e293b;border:1px solid #334155;">
+          <button class="tab-btn py-1.5 px-3 text-xs" :class="{active: graphMode==='bipartite'}"
+                  @click="graphMode='bipartite'; renderGraph()">
+            Species–Class Network
+          </button>
+          <button class="tab-btn py-1.5 px-3 text-xs" :class="{active: graphMode==='cooccurrence'}"
+                  @click="graphMode='cooccurrence'; renderGraph()">
+            Co-occurrence Network
+          </button>
+        </div>
+        <button class="btn btn-ghost text-xs py-1.5" @click="if(_cyInstance){_cyInstance.fit(50)}">Fit View</button>
+        <button class="btn btn-ghost text-xs py-1.5" @click="resetGraphLayout()">Reset Layout</button>
+        <div class="ml-auto flex items-center gap-4 text-xs text-slate-500">
+          <template x-if="graphMode==='bipartite'">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full inline-block" style="background:#52b788;"></span>Species
+              </span>
+              <span class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 inline-block" style="background:#818cf8;transform:rotate(45deg);"></span>Compound Class
+              </span>
+              <span class="text-slate-600">Node size = compound count</span>
+            </div>
+          </template>
+          <template x-if="graphMode==='cooccurrence'">
+            <span>Edge weight = number of shared compounds · Node size = total compounds</span>
+          </template>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-4 gap-4">
+
+        <!-- Graph canvas -->
+        <div class="xl:col-span-3 relative" style="background:#0c1624;border:1px solid #334155;border-radius:.75rem;overflow:hidden;">
+          <div id="species-graph" style="width:100%;height:580px;"></div>
+          <!-- Loading -->
+          <div x-show="graphLoading" class="absolute inset-0 flex flex-col items-center justify-center" style="background:#0c1624;">
+            <div class="w-9 h-9 rounded-full border-2 border-emerald-600 border-t-transparent mb-3" style="animation:spin .8s linear infinite;"></div>
+            <div class="text-slate-500 text-sm">Building network graph…</div>
+          </div>
+          <!-- Empty co-occurrence state -->
+          <div x-show="!graphLoading && graphMode==='cooccurrence' && graphStats.nodes===0"
+               class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+            <svg class="w-12 h-12 text-slate-700 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+            </svg>
+            <div class="text-slate-400 text-sm text-center">No shared compounds detected between species.</div>
+            <div class="text-slate-600 text-xs mt-1">Try the Species–Class Network view.</div>
+          </div>
+        </div>
+
+        <!-- Side panel -->
+        <div class="space-y-4">
+
+          <!-- Network Metrics -->
+          <div class="stats-chart-card">
+            <div class="flex items-center gap-2 mb-4">
+              <div style="width:3px;height:14px;border-radius:2px;background:#52b788;flex-shrink:0;"></div>
+              <span class="chart-title">Network Metrics</span>
+            </div>
+            <div class="space-y-0">
+              <div class="flex justify-between items-center py-2 border-b border-slate-800/60">
+                <span class="text-xs text-slate-400">Nodes</span>
+                <span class="text-sm font-bold text-white" x-text="graphStats.nodes||0"></span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-slate-800/60">
+                <span class="text-xs text-slate-400">Edges</span>
+                <span class="text-sm font-bold text-white" x-text="graphStats.edges||0"></span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-slate-800/60">
+                <span class="text-xs text-slate-400">Graph Density</span>
+                <span class="text-sm font-bold text-emerald-400" x-text="graphStats.density||'—'"></span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-slate-800/60">
+                <span class="text-xs text-slate-400">Avg. Degree</span>
+                <span class="text-sm font-bold text-white" x-text="graphStats.avgDegree||'—'"></span>
+              </div>
+              <div class="flex justify-between items-center py-2" x-show="graphMode==='bipartite'">
+                <span class="text-xs text-slate-400">Compound Classes</span>
+                <span class="text-sm font-bold text-indigo-400" x-text="graphStats.classNodes||0"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Selected node -->
+          <div class="stats-chart-card">
+            <div class="flex items-center gap-2 mb-4">
+              <div style="width:3px;height:14px;border-radius:2px;background:#fbbf24;flex-shrink:0;"></div>
+              <span class="chart-title">Selected Node</span>
+            </div>
+            <template x-if="graphSelectedNode">
+              <div class="space-y-3">
+                <div class="text-sm font-semibold text-white leading-snug" x-text="graphSelectedNode.label"></div>
+                <div class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium"
+                     :style="graphSelectedNode.type==='species' ? 'background:rgba(52,183,136,.15);color:#52b788;border:1px solid rgba(52,183,136,.3)' : 'background:rgba(129,140,248,.15);color:#818cf8;border:1px solid rgba(129,140,248,.3)'"
+                     x-text="graphSelectedNode.type==='species' ? 'Plant Species' : 'Compound Class'"></div>
+                <div class="space-y-2 pt-1">
+                  <div class="flex justify-between">
+                    <span class="text-xs text-slate-500">Compounds</span>
+                    <span class="text-xs font-mono text-slate-200" x-text="graphSelectedNode.compound_count ?? '—'"></span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-xs text-slate-500">Network links</span>
+                    <span class="text-xs font-mono text-slate-200" x-text="graphSelectedNode.degree"></span>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <div x-show="!graphSelectedNode" class="py-5 text-center text-xs text-slate-600">
+              Click any node to inspect
+            </div>
+          </div>
+
+          <!-- Top connected species -->
+          <div class="stats-chart-card">
+            <div class="flex items-center gap-2 mb-4">
+              <div style="width:3px;height:14px;border-radius:2px;background:#6366f1;flex-shrink:0;"></div>
+              <span class="chart-title">Most Connected Species</span>
+            </div>
+            <div class="space-y-1" x-show="(graphStats.topConnected||[]).length > 0">
+              <template x-for="(s, i) in (graphStats.topConnected||[])" :key="s.name">
+                <div class="flex items-center gap-2 py-1.5">
+                  <span class="text-xs text-slate-600 w-4 shrink-0" x-text="(i+1)+'.'"></span>
+                  <span class="text-xs text-slate-300 italic flex-1 truncate" x-text="s.name" :title="s.name"></span>
+                  <span class="text-xs font-mono text-emerald-400 shrink-0" x-text="s.degree+' links'"></span>
+                </div>
+              </template>
+            </div>
+            <div x-show="!(graphStats.topConnected||[]).length" class="py-4 text-center text-xs text-slate-600">
+              Run analysis to see results
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ── STATISTICS VIEW ────────────────────────────────────────────── -->
+  <section class="flex-1 overflow-y-auto" x-show="view==='stats'" x-cloak>
+
+    <!-- Hero Banner -->
+    <div class="stats-hero px-8 py-10 relative overflow-hidden">
+      <div class="absolute inset-y-0 right-0 w-96 pointer-events-none" aria-hidden="true">
+        <svg class="absolute right-0 top-0 h-full opacity-[0.08]" viewBox="0 0 380 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M190 290 C190 290 190 170 190 60" stroke="#52b788" stroke-width="3"/>
+          <path d="M190 220 C190 220 148 192 98 187" stroke="#52b788" stroke-width="2"/>
+          <path d="M190 220 C190 220 232 192 282 187" stroke="#52b788" stroke-width="2"/>
+          <path d="M190 168 C190 168 143 143 108 132" stroke="#52b788" stroke-width="2"/>
+          <path d="M190 168 C190 168 237 143 272 132" stroke="#52b788" stroke-width="2"/>
+          <path d="M190 125 C190 125 163 107 143 97" stroke="#52b788" stroke-width="1.5"/>
+          <path d="M190 125 C190 125 217 107 237 97" stroke="#52b788" stroke-width="1.5"/>
+          <ellipse cx="92" cy="177" rx="46" ry="18" transform="rotate(-25 92 177)" fill="#52b788"/>
+          <ellipse cx="288" cy="177" rx="46" ry="18" transform="rotate(25 288 177)" fill="#52b788"/>
+          <ellipse cx="103" cy="123" rx="38" ry="15" transform="rotate(-35 103 123)" fill="#52b788"/>
+          <ellipse cx="277" cy="123" rx="38" ry="15" transform="rotate(35 277 123)" fill="#52b788"/>
+          <ellipse cx="138" cy="88" rx="28" ry="11" transform="rotate(-20 138 88)" fill="#52b788"/>
+          <ellipse cx="242" cy="88" rx="28" ry="11" transform="rotate(20 242 88)" fill="#52b788"/>
+          <circle cx="190" cy="57" r="10" fill="#52b788"/>
+          <polygon points="190,32 201,26 201,14 190,8 179,14 179,26" fill="none" stroke="#74c69d" stroke-width="1.5"/>
+          <circle cx="190" cy="20" r="4" fill="none" stroke="#74c69d" stroke-width="1"/>
+          <polygon points="76,84 87,78 87,66 76,60 65,66 65,78" fill="none" stroke="#74c69d" stroke-width="1.2"/>
+          <polygon points="304,84 315,78 315,66 304,60 293,66 293,78" fill="none" stroke="#74c69d" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="relative z-10">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17 8C8 10 5.9 16.17 3.82 19.82 4.43 19.94 5.05 20 5.68 20 10.61 20 15.1 17.04 17 12.5V8Z"/>
+            <path d="M17.5 6.5C14 3 8.5 3.5 5 7.5c0 0 2-1.5 5-.5 0 0-2 1-3 3 1.5-1 2.5-1.5 5-1 0 0-2 1-2 3.5 0 2.5 1.5 4 2 4.5 0 0 1-4 5.5-10.5Z"/>
+          </svg>
+          <span class="text-xs font-semibold uppercase tracking-widest text-emerald-400">Botanical Database Analytics</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white mb-2 leading-tight">Phenolic Compound<br>Analytics Dashboard</h1>
+        <p class="text-slate-400 text-sm leading-relaxed max-w-2xl">Comprehensive statistical overview of polyphenol distribution across botanical species, plant tissues, and chemical classifications in the iberPhenol research database.</p>
+      </div>
+    </div>
+
+    <div class="px-6 py-6 space-y-6">
+
+      <!-- KPI Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-4">
+
+        <div class="stats-kpi-card">
+          <div class="stats-kpi-icon" style="background:rgba(99,102,241,.15);">
+            <svg class="w-5 h-5" style="color:#818cf8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-white leading-none" x-text="(dbStats.compounds||0).toLocaleString()"></div>
+          <div class="text-xs text-slate-400 mt-1.5 font-medium">Compounds</div>
+        </div>
+
+        <div class="stats-kpi-card">
+          <div class="stats-kpi-icon" style="background:rgba(52,183,136,.15);">
+            <svg class="w-5 h-5" style="color:#52b788;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-white leading-none" x-text="(dbStats.species||0).toLocaleString()"></div>
+          <div class="text-xs text-slate-400 mt-1.5 font-medium">Plant Species</div>
+        </div>
+
+        <div class="stats-kpi-card">
+          <div class="stats-kpi-icon" style="background:rgba(6,182,212,.15);">
+            <svg class="w-5 h-5" style="color:#22d3ee;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-white leading-none" x-text="(dbStats.measurements||0).toLocaleString()"></div>
+          <div class="text-xs text-slate-400 mt-1.5 font-medium">Measurements</div>
+        </div>
+
+        <div class="stats-kpi-card">
+          <div class="stats-kpi-icon" style="background:rgba(196,181,253,.15);">
+            <svg class="w-5 h-5" style="color:#c4b5fd;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-white leading-none" x-text="(dbStats.spectral_data||0).toLocaleString()"></div>
+          <div class="text-xs text-slate-400 mt-1.5 font-medium">Spectral Records</div>
+        </div>
+
+        <div class="stats-kpi-card">
+          <div class="stats-kpi-icon" style="background:rgba(52,211,153,.15);">
+            <svg class="w-5 h-5" style="color:#34d399;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <div class="text-3xl font-bold text-white leading-none" x-text="(dbStats.compounds_with_structure||0).toLocaleString()"></div>
+          <div class="text-xs text-slate-400 mt-1.5 font-medium">With Structure</div>
+        </div>
+
+        <div class="stats-kpi-card" style="background:linear-gradient(135deg,#0d2b1c,#162032);border-color:#1b4332;">
+          <div class="stats-kpi-icon" style="background:rgba(52,183,136,.2);">
+            <svg class="w-5 h-5" style="color:#52b788;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+          </div>
+          <div class="text-3xl font-bold leading-none" style="color:#52b788;" x-text="coveragePct + '%'"></div>
+          <div class="text-xs mt-1.5 font-medium" style="color:#2d6a4f;">Structure Coverage</div>
+        </div>
+
+      </div>
+
+      <!-- Charts Row 1: Class Distribution + Top Species -->
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+
+        <!-- Compound Class Doughnut -->
+        <div class="stats-chart-card lg:col-span-3">
+          <div class="flex items-center gap-2 mb-5">
+            <div style="width:3px;height:16px;border-radius:2px;background:#6366f1;flex-shrink:0;"></div>
+            <h3 class="chart-title">Compound Class Distribution</h3>
+          </div>
+          <div class="flex items-start gap-6">
+            <div class="shrink-0 relative" style="width:220px;height:220px;">
+              <canvas id="stats-class-chart"></canvas>
+              <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                <div class="text-2xl font-bold text-white" x-text="(detailedStats?.class_distribution||[]).reduce((s,c)=>s+c.count,0).toLocaleString()"></div>
+                <div class="text-xs text-slate-500">compounds</div>
+              </div>
+            </div>
+            <div class="flex-1 overflow-y-auto" style="max-height:220px;">
+              <template x-for="(cls, i) in (detailedStats?.class_distribution||[])" :key="cls.compound_class">
+                <div class="flex items-center justify-between gap-2 py-1.5 border-b border-slate-800/50 last:border-0">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <div class="w-2 h-2 rounded-full shrink-0" :style="'background:' + botanicalColors[i % botanicalColors.length]"></div>
+                    <span class="text-xs text-slate-300 truncate" x-text="cls.compound_class"></span>
+                  </div>
+                  <div class="flex items-center gap-2 shrink-0">
+                    <span class="text-xs font-mono text-slate-400" x-text="cls.count"></span>
+                    <span class="text-xs text-slate-600" x-text="detailedStats && detailedStats.class_distribution.reduce((s,c)=>s+c.count,0) > 0 ? Math.round(cls.count / detailedStats.class_distribution.reduce((s,c)=>s+c.count,0) * 100) + '%' : ''"></span>
+                  </div>
+                </div>
+              </template>
+              <div x-show="!detailedStats" class="py-8 text-center text-slate-500 text-xs">Loading…</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Species Horizontal Bar -->
+        <div class="stats-chart-card lg:col-span-2">
+          <div class="flex items-center gap-2 mb-5">
+            <div style="width:3px;height:16px;border-radius:2px;background:#52b788;flex-shrink:0;"></div>
+            <h3 class="chart-title">Top Plant Species</h3>
+          </div>
+          <div style="height:250px;">
+            <canvas id="stats-species-chart"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Charts Row 2: Plant Parts + Structural Coverage -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Plant Part Distribution -->
+        <div class="stats-chart-card">
+          <div class="flex items-center gap-2 mb-5">
+            <div style="width:3px;height:16px;border-radius:2px;background:#06b6d4;flex-shrink:0;"></div>
+            <h3 class="chart-title">Compound Distribution by Plant Tissue</h3>
+          </div>
+          <div style="height:260px;">
+            <canvas id="stats-parts-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Structural Coverage -->
+        <div class="stats-chart-card">
+          <div class="flex items-center gap-2 mb-5">
+            <div style="width:3px;height:16px;border-radius:2px;background:#c4b5fd;flex-shrink:0;"></div>
+            <h3 class="chart-title">Data Quality &amp; Structural Coverage</h3>
+          </div>
+          <div class="flex items-center gap-8">
+            <div class="shrink-0 relative" style="width:180px;height:180px;">
+              <canvas id="stats-coverage-chart"></canvas>
+              <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                <div class="text-3xl font-bold text-white" x-text="coveragePct + '%'"></div>
+                <div class="text-xs text-slate-400">resolved</div>
+              </div>
+            </div>
+            <div class="flex-1 space-y-5">
+              <div>
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-2xl font-bold text-emerald-400" x-text="(dbStats.compounds_with_structure||0).toLocaleString()"></span>
+                  <span class="text-xs text-slate-500">compounds</span>
+                </div>
+                <div class="text-xs text-slate-400 mb-2">With 2D Structure</div>
+                <div class="h-1.5 rounded-full" style="background:#1e3a2f;">
+                  <div class="h-full rounded-full bg-emerald-500 transition-all duration-700" :style="'width:' + coveragePct + '%'"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-2xl font-bold text-amber-400" x-text="(dbStats.compounds_not_found||0).toLocaleString()"></span>
+                  <span class="text-xs text-slate-500">compounds</span>
+                </div>
+                <div class="text-xs text-slate-400 mb-2">Unresolved (needs curation)</div>
+                <div class="h-1.5 rounded-full bg-slate-700">
+                  <div class="h-full rounded-full bg-amber-500 transition-all duration-700" :style="'width:' + unresolvedPct + '%'"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex items-baseline gap-2 mb-1">
+                  <span class="text-2xl font-bold text-indigo-400" x-text="(detailedStats?.compounds_with_measurements||0).toLocaleString()"></span>
+                  <span class="text-xs text-slate-500">compounds</span>
+                </div>
+                <div class="text-xs text-slate-400">With Concentration Data</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Subclass Breakdown -->
+      <div class="stats-chart-card">
+        <div class="flex items-center justify-between mb-5">
+          <div class="flex items-center gap-2">
+            <div style="width:3px;height:16px;border-radius:2px;background:#e9c46a;flex-shrink:0;"></div>
+            <h3 class="chart-title">Subclass Breakdown</h3>
+          </div>
+          <span class="text-xs text-slate-500">Top 15 by compound count</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          <template x-for="(sub, i) in (detailedStats?.subclass_distribution||[])" :key="sub.subclass">
+            <div class="flex items-center justify-between py-2 px-3 rounded-lg gap-3" style="background:#253347;border:1px solid #3a4f63;">
+              <div class="min-w-0 flex-1">
+                <div class="text-xs font-semibold text-slate-100 truncate" x-text="sub.subclass"></div>
+                <div class="text-xs text-slate-400 truncate" x-text="sub.compound_class"></div>
+              </div>
+              <div class="shrink-0 flex items-center gap-2">
+                <div class="h-1.5 rounded-full" style="width:40px;background:#334155;">
+                  <div class="h-full rounded-full transition-all duration-500"
+                       :style="'width:' + (detailedStats?.subclass_distribution?.length ? Math.min(100, sub.count / Math.max(...detailedStats.subclass_distribution.map(s=>s.count)) * 100) : 0) + '%;background:' + botanicalColors[i % botanicalColors.length]"></div>
+                </div>
+                <span class="text-sm font-bold text-white" x-text="sub.count"></span>
+              </div>
+            </div>
+          </template>
+          <div x-show="!detailedStats" class="col-span-full py-8 text-center text-slate-500 text-xs">Loading…</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── MAP VIEW ──────────────────────────────────────────────────────── -->
+  <section x-show="view==='map'" x-cloak style="height: calc(100vh - 56px); width: 100%; display: flex; position: absolute; top: 56px; left: 0; background: #fff; z-index: 40;">
+    <!-- Map container -->
+    <div style="flex: 1; height: 100%; min-height: 400px; position: relative; background: #eaecf0;">
+      <div id="map" style="position: absolute; inset: 0; width: 100%; height: 100%;"></div>
+    </div>
+    <!-- Side panel -->
+    <div style="width:320px;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;background:#fff;border-left:1px solid #e5e7eb;z-index:1;">
+      <!-- Header -->
+      <div style="padding:1rem;border-bottom:1px solid #e5e7eb;background:#fafafa;">
+        <div style="font-weight:600;font-size:.9rem;color:#1f2937;" x-text="mapSelected ? mapSelected.name : 'Clique num marcador'"></div>
+        <div style="font-size:.75rem;color:#9ca3af;margin-top:.2rem;" x-show="mapSelected" x-text="mapSelected ? mapSelected.compound_count + ' compostos · ' + mapSelected.species.length + ' espécies' : ''"></div>
+      </div>
+      <!-- Species -->
+      <div style="padding:.75rem 1rem;border-bottom:1px solid #e5e7eb;" x-show="mapSelected">
+        <div style="font-size:.7rem;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;">Espécies</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.3rem;">
+          <template x-for="sp in (mapSelected ? mapSelected.species : [])" :key="sp">
+            <span style="font-size:.72rem;font-style:italic;background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;padding:.1rem .45rem;border-radius:.3rem;" x-text="sp"></span>
+          </template>
+        </div>
+      </div>
+      <!-- Empty state -->
+      <div x-show="!mapSelected" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;color:#d1d5db;">
+        <svg style="width:3rem;height:3rem;margin-bottom:.75rem;opacity:.4;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span style="font-size:.85rem;">Selecione um local no mapa</span>
+      </div>
+      <!-- Loading -->
+      <div x-show="mapSelected && mapLoading" style="padding:1rem;font-size:.85rem;color:#9ca3af;" class="pulse">A carregar compostos…</div>
+      <!-- Compounds list -->
+      <div style="flex:1;overflow-y:auto;" x-show="mapSelected && !mapLoading">
+        <div x-show="mapCompounds.length === 0" style="padding:1rem;font-size:.85rem;color:#9ca3af;">Nenhum composto encontrado.</div>
+        <template x-for="c in mapCompounds" :key="c.id">
+          <div class="compound-row" style="padding:.6rem 1rem;border-bottom:1px solid #f3f4f6;cursor:pointer;"
+               @click="view='search'; $nextTick(()=>selectCompound(c.id))">
+            <div style="font-size:.82rem;font-weight:500;color:#1f2937;" x-text="c.molecule_name"></div>
+            <div style="display:flex;align-items:center;gap:.4rem;margin-top:.25rem;">
+              <span class="tag" :class="classTag(c.compound_class)" x-text="c.compound_class || '—'"></span>
+              <span style="font-size:.72rem;color:#9ca3af;font-style:italic;" x-text="c.scientific_name"></span>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /main -->
+
+
+<!-- ── ALPINE.JS APP ───────────────────────────────────────────────────── -->
+<script>
+function phenolDB() {
+  return {
+    view: 'search',
+    listView: 'table',
+    compounds: [],
+    total: 0,
+    page: 1,
+    loading: false,
+    filters: { search: '', species_id: '', compound_class: '', plant_part: '', has_structure: false },
+    speciesList: [],
+    uniqueClasses: [],
+    plantParts: [],
+    dbStats: {},
+    detail: null,
+    detailTab: 'overview',
+    selectedSpeciesDetail: null,
+    speciesCompounds: [],
+    classDistribution: [],
+    _chartInstance: null,
+    _map: null,
+    mapSelected: null,
+    mapCompounds: [],
+    mapLoading: false,
+    speciesTab: 'explorer',
+    graphData: null,
+    graphMode: 'bipartite',
+    graphStats: { nodes: 0, edges: 0, density: '—', avgDegree: '—', classNodes: 0, topConnected: [] },
+    graphSelectedNode: null,
+    graphLoading: false,
+    _cyInstance: null,
+    detailedStats: null,
+    botanicalColors: [
+      '#52b788','#40916c','#74c69d','#2d6a4f','#95d5b2',
+      '#6366f1','#818cf8','#06b6d4','#e9c46a','#f4a261',
+      '#c4b5fd','#fb7185','#34d399','#a3e635','#38bdf8'
+    ],
+    _statsCharts: {},
+
+    get totalPages() {
+      return Math.max(1, Math.ceil(this.total / 50));
+    },
+    get hasFilters() {
+      return this.filters.search || this.filters.species_id || this.filters.compound_class || this.filters.plant_part || this.filters.has_structure;
+    },
+    get coveragePct() {
+      if (!this.dbStats.compounds) return 0;
+      return Math.round((this.dbStats.compounds_with_structure || 0) / this.dbStats.compounds * 100);
+    },
+    get unresolvedPct() {
+      if (!this.dbStats.compounds) return 0;
+      return Math.round((this.dbStats.compounds_not_found || 0) / this.dbStats.compounds * 100);
+    },
+    get exportUrl() {
+      const p = new URLSearchParams();
+      if (this.filters.search) p.set('search', this.filters.search);
+      if (this.filters.species_id) p.set('species_id', this.filters.species_id);
+      if (this.filters.compound_class) p.set('compound_class', this.filters.compound_class);
+      return '/api/export?' + p.toString();
+    },
+
+    async init() {
+      await Promise.all([
+        this.fetchCompounds(),
+        this.loadRefData(),
+        this.loadStats(),
+      ]);
+    },
+
+    async loadRefData() {
+      const [sRes, cRes, pRes] = await Promise.all([
+        fetch('/api/species'), fetch('/api/classes'), fetch('/api/plant_parts')
+      ]);
+      this.speciesList = await sRes.json();
+      const classes = await cRes.json();
+      this.uniqueClasses = [...new Set(classes.map(c => c.compound_class).filter(Boolean))].sort();
+      this.plantParts = await pRes.json();
+    },
+
+    async loadStats() {
+      const r = await fetch('/api/stats');
+      this.dbStats = await r.json();
+      // Build class distribution
+      const r2 = await fetch('/api/compounds?limit=200');
+      const data = await r2.json();
+      const counts = {};
+      data.compounds.forEach(c => {
+        const cls = c.compound_class || 'Unknown';
+        counts[cls] = (counts[cls] || 0) + 1;
+      });
+      // For accurate class counts, fetch more
+      const r3 = await fetch('/api/classes');
+      const allClasses = await r3.json();
+      const classCounts = {};
+      allClasses.forEach(c => {
+        const cls = c.compound_class || 'Unknown';
+        classCounts[cls] = (classCounts[cls] || 0) + 1;
+      });
+      const total = Object.values(classCounts).reduce((a, b) => a + b, 0);
+      this.classDistribution = Object.entries(classCounts)
+        .map(([cls, count]) => ({ compound_class: cls, count, pct: Math.round(count / total * 100) }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 12);
+    },
+
+    async fetchCompounds() {
+      this.loading = true;
+      const p = new URLSearchParams({
+        page: this.page,
+        limit: 50,
+        search: this.filters.search,
+        ...(this.filters.species_id && { species_id: this.filters.species_id }),
+        ...(this.filters.compound_class && { compound_class: this.filters.compound_class }),
+        ...(this.filters.plant_part && { plant_part: this.filters.plant_part }),
+        ...(this.filters.has_structure && { has_structure: true }),
+      });
+      const r = await fetch('/api/compounds?' + p);
+      const data = await r.json();
+      this.compounds = data.compounds;
+      this.total = data.total;
+      this.loading = false;
+
+    },
+
+    async selectCompound(id) {
+      const r = await fetch('/api/compounds/' + id);
+      this.detail = await r.json();
+      this.detailTab = 'overview';
+      if (this.view !== 'search') this.view = 'search';
+    },
+
+    async loadSpeciesView() {
+      if (this.speciesList.length === 0) await this.loadRefData();
+    },
+
+    async loadSpeciesDetail(species) {
+      this.selectedSpeciesDetail = species;
+      const r = await fetch('/api/species/' + species.id + '/compounds');
+      this.speciesCompounds = await r.json();
+    },
+
+    clearFilters() {
+      this.filters = { search: '', species_id: '', compound_class: '', plant_part: '', has_structure: false };
+      this.page = 1;
+      this.fetchCompounds();
+    },
+
+    async jumpToSpecies(speciesId) {
+      if (!speciesId) return;
+      this.view = 'species';
+      this.detail = null; // Close compound detail
+      await this.loadSpeciesView();
+      const species = this.speciesList.find(s => s.id === speciesId);
+      if (species) {
+        this.loadSpeciesDetail(species);
+        // Scroll to detail if mobile
+        document.querySelector('.content-area')?.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    },
+
+    prevPage() { if (this.page > 1) { this.page--; this.fetchCompounds(); } },
+    nextPage() { if (this.page < this.totalPages) { this.page++; this.fetchCompounds(); } },
+
+
+
+    renderChart() {
+      if (!this.detail || this.detail.measurements.length === 0) return;
+      const canvas = document.getElementById('conc-chart');
+      if (!canvas) return;
+
+      const measurements = this.detail.measurements
+        .filter(m => m.concentration_value && !isNaN(parseFloat(m.concentration_value)))
+        .slice(0, 15);
+
+      if (measurements.length === 0) return;
+
+      if (this._chartInstance) { this._chartInstance.destroy(); }
+
+      const labels = measurements.map(m => (m.scientific_name || m.plant_part || 'Unknown').substring(0, 25));
+      const values = measurements.map(m => parseFloat(m.concentration_value));
+      const unit = measurements[0]?.concentration_unit || '';
+
+      this._chartInstance = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Concentration (' + unit + ')',
+            data: values,
+            backgroundColor: 'rgba(196, 30, 30, 0.7)',
+            borderColor: 'rgba(196, 30, 30, 1)',
+            borderWidth: 1,
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#6b7280', font: { size: 11 } } }
+          },
+          scales: {
+            x: { ticks: { color: '#9ca3af', font: { size: 9 }, maxRotation: 45 }, grid: { color: '#e5e7eb' } },
+            y: { ticks: { color: '#9ca3af', font: { size: 10 } }, grid: { color: '#e5e7eb' } }
+          }
+        }
+      });
+    },
+
+    async loadMap() {
+      console.log("Iniciando carregamento do mapa...");
+      await this.$nextTick();
+      await new Promise(r => setTimeout(r, 600)); // Mais tempo para o DOM estabilizar
+      
+      const mapEl = document.getElementById('map');
+      if (!mapEl) {
+        console.error("Erro: Container #map não existe.");
+        return;
+      }
+      
+      // Forçar altura se o navegador falhar no CSS
+      if (mapEl.offsetHeight === 0) {
+          mapEl.style.height = "calc(100vh - 60px)";
+          console.warn("Aviso: Altura do mapa era 0px, forçando via JS.");
+      }
+
+      if (this._map) {
+        this._map.invalidateSize();
+        return;
+      }
+
+      try {
+        this._map = L.map('map', { zoomControl: true }).setView([39.8, -7.8], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap', maxZoom: 18
+        }).addTo(this._map);
+
+        const r = await fetch('/api/locations');
+        const locations = await r.json();
+        
+        locations.forEach(loc => {
+          if (!loc.lat || !loc.lng) return;
+          const size = Math.min(42, Math.max(20, 14 + Math.sqrt(loc.compounds_count) * 3));
+          const icon = L.divIcon({
+            className: '',
+            html: `<div class="map-marker-pulse" style="width:${size}px;height:${size}px;border-radius:50%;background:#c41e1e;border:2px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;font-size:${size > 30 ? 11 : 9}px;font-weight:700;">${loc.compounds_count}</div>`,
+            iconSize: [size, size],
+            iconAnchor: [size/2, size/2],
+          });
+          const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(this._map);
+          
+          let popup = `<div class="p-3 min-w-[200px] bg-slate-900 border border-slate-700 rounded-lg shadow-xl">
+            <h3 class="text-sm font-bold text-emerald-400 mb-2 truncate">${loc.name}</h3>
+            <div class="text-[10px] text-slate-500 font-bold mb-2 uppercase">${loc.species_count} espécies</div>`;
+          
+          loc.species.slice(0, 5).forEach(s => {
+            popup += `<div class="text-xs italic text-slate-300 hover:text-emerald-400 cursor-pointer py-0.5" onclick="window.dispatchJump(${s.id})">🌿 ${s.scientific_name}</div>`;
+          });
+          
+          popup += `<button class="w-full mt-2 py-1 bg-emerald-600 text-white text-[10px] font-bold rounded uppercase">Ver detalhes</button></div>`;
+          
+          marker.bindPopup(popup, { className: 'custom-leaflet-popup', closeButton: false });
+        });
+        
+        window.dispatchJump = (id) => this.jumpToSpecies(id);
+        console.log("Mapa carregado com sucesso.");
+      } catch (err) {
+        console.error("Falha ao inicializar o mapa:", err);
+      }
+    },
+
+    parseSpeciesLocations(origins) {
+      const DIRECTIONAL = /^(north|south|east|west|north-?eastern|north-?western|south-?eastern|south-?western|central|northern|southern|eastern|western|northeastern|northwestern|southeastern|southwestern)\s+/i;
+      const COMPANY_WORDS = /\b(lda|sa|ltd|company|empresa|aroma|organic|farmers|from\s|segredo|cantinho|lecifarma|ervital|pragmático|natural park|territory)\b/i;
+
+      const results = [];
+      const seen = new Set();
+
+      for (const raw of origins) {
+        if (!raw) continue;
+        if (/^(a\)|b\)|wild|market|supermarket)/i.test(raw.trim())) continue;
+
+        // Normalize separators and trailing punctuation
+        let s = raw.replace(/;/g, ',').replace(/[.,]\s*$/, '').trim();
+
+        let city = null, country = null;
+
+        // Case: ends with "(... Country)" — e.g. "Bragança (northeastern Portugal)"
+        const parenMatch = s.match(/\(([^)]+)\)\s*$/);
+        if (parenMatch) {
+          const cityCandidate = s.replace(/\s*\([^)]+\)\s*$/, '').split(',').pop().trim();
+          if (cityCandidate && !COMPANY_WORDS.test(cityCandidate)) city = cityCandidate;
+          const inside = parenMatch[1].trim();
+          const stripped = inside.replace(DIRECTIONAL, '').trim();
+          country = stripped.split(',').pop().trim().split(/\s+/).pop();
+        } else {
+          // Split by comma into parts
+          const parts = s.split(',').map(p => p.trim()).filter(Boolean);
+          if (parts.length === 0) continue;
+
+          // Country = last part after stripping directional qualifier
+          const rawCountry = parts[parts.length - 1].replace(DIRECTIONAL, '').trim();
+          country = rawCountry.split(/\s+/).pop(); // last word
+
+          // City = walk backwards to find first non-company part
+          for (let i = parts.length - 2; i >= 0; i--) {
+            const p = parts[i];
+            if (!COMPANY_WORDS.test(p) && !/\bin\b/i.test(p)) {
+              city = p.replace(/^in\s+/i, '').trim();
+              break;
+            }
+          }
+        }
+
+        // Build label
+        let label = '';
+        if (city && country && city.toLowerCase() !== country.toLowerCase()) {
+          label = city + ', ' + country;
+        } else if (country) {
+          label = country;
+        } else if (city) {
+          label = city;
+        } else {
+          label = s.length > 35 ? s.slice(0, 33) + '…' : s;
+        }
+
+        if (label && !seen.has(label.toLowerCase())) {
+          seen.add(label.toLowerCase());
+          results.push(label);
+        }
+      }
+      return results;
+    },
+
+    classTag(cls) {
+      if (!cls) return 'tag-default';
+      const c = cls.toLowerCase();
+      if (c.includes('flavone') || c.includes('flavonol') || c.includes('flavanone')) return 'tag-flavone';
+      if (c.includes('anthocyan')) return 'tag-anthocyanin';
+      if (c.includes('phenolic') || c.includes('acid') || c.includes('hydroxy')) return 'tag-phenolic';
+      return 'tag-default';
+    },
+
+    async loadSpeciesGraph() {
+      if (this._cyInstance) { this._cyInstance.destroy(); this._cyInstance = null; }
+      if (!this.graphData) {
+        this.graphLoading = true;
+        const r = await fetch('/api/graph/species');
+        this.graphData = await r.json();
+        this.graphLoading = false;
+      }
+      this.$nextTick(() => this.renderGraph());
+    },
+
+    renderGraph() {
+      if (!this.graphData) return;
+      if (this.graphMode === 'bipartite') this.renderBipartiteGraph();
+      else this.renderCooccurrenceGraph();
+    },
+
+    getCytoscapeStyle(mode) {
+      const styles = [
+        { selector: 'node', style: {
+          'width': 'data(size)', 'height': 'data(size)', 'label': 'data(label)',
+          'font-size': 10, 'text-valign': 'bottom', 'text-halign': 'center',
+          'text-margin-y': 7, 'text-wrap': 'ellipsis', 'text-max-width': 115,
+          'color': '#94a3b8',
+        }},
+        { selector: 'node[type="species"]', style: {
+          'background-color': '#1b4332', 'border-color': '#52b788', 'border-width': 2,
+          'color': '#d1fae5', 'font-style': 'italic',
+        }},
+        { selector: 'node[type="class"]', style: {
+          'background-color': '#1e1b4b', 'border-color': '#818cf8', 'border-width': 2,
+          'color': '#c7d2fe', 'shape': 'diamond',
+        }},
+        { selector: 'edge', style: {
+          'width': 'data(width)', 'line-color': '#2d4a5c', 'opacity': 0.6, 'curve-style': 'bezier',
+        }},
+        { selector: 'node.highlighted', style: { 'border-color': '#fbbf24', 'border-width': 3, 'opacity': 1 }},
+        { selector: 'node.faded', style: { 'opacity': 0.08 }},
+        { selector: 'edge.highlighted', style: { 'line-color': '#fbbf24', 'opacity': 0.9 }},
+        { selector: 'edge.faded', style: { 'opacity': 0.03 }},
+        { selector: 'node:selected', style: { 'border-color': '#f0abfc', 'border-width': 4 }},
+      ];
+      if (mode === 'cooccurrence') {
+        styles.push({ selector: 'edge', style: {
+          'width': 'data(width)', 'line-color': '#1b4332', 'opacity': 0.7, 'curve-style': 'bezier',
+          'label': 'data(label)', 'font-size': 8, 'color': '#475569', 'text-rotation': 'autorotate',
+        }});
+      }
+      return styles;
+    },
+
+    renderBipartiteGraph() {
+      const container = document.getElementById('species-graph');
+      if (!container || !this.graphData) return;
+      if (this._cyInstance) { this._cyInstance.destroy(); this._cyInstance = null; }
+
+      const data = this.graphData;
+      const els = [];
+      const maxCpd = Math.max(...data.species.map(s => s.compound_count), 1);
+
+      data.species.forEach(s => {
+        const sz = 22 + Math.sqrt(s.compound_count / maxCpd) * 40;
+        els.push({ data: { id: 'sp_' + s.id, label: s.scientific_name, type: 'species', size: sz, compound_count: s.compound_count, class_count: s.class_count || 0 }});
+      });
+
+      const classCounts = {};
+      data.species_class_edges.forEach(e => { classCounts[e.compound_class] = (classCounts[e.compound_class] || 0) + 1; });
+      const maxCC = Math.max(...Object.values(classCounts), 1);
+      Object.entries(classCounts).forEach(([cls, cnt]) => {
+        const sz = 18 + Math.sqrt(cnt / maxCC) * 30;
+        els.push({ data: { id: 'cls_' + cls, label: cls, type: 'class', size: sz, species_count: cnt }});
+      });
+
+      const seen = new Set();
+      data.species_class_edges.forEach(e => {
+        const eid = `e_${e.species_id}_${e.compound_class}`;
+        if (!seen.has(eid)) {
+          seen.add(eid);
+          els.push({ data: { id: eid, source: 'sp_' + e.species_id, target: 'cls_' + e.compound_class, weight: e.count, width: Math.min(6, 1 + Math.sqrt(e.count)) }});
+        }
+      });
+
+      this._cyInstance = cytoscape({
+        container, elements: els,
+        style: this.getCytoscapeStyle('bipartite'),
+        layout: { name: 'cose', idealEdgeLength: 130, nodeRepulsion: 550000, gravity: 80, numIter: 1200, fit: true, padding: 40, randomize: false },
+      });
+      this.setupCytoscapeEvents();
+      this.updateGraphStats('bipartite');
+    },
+
+    renderCooccurrenceGraph() {
+      const container = document.getElementById('species-graph');
+      if (!container || !this.graphData) return;
+      if (this._cyInstance) { this._cyInstance.destroy(); this._cyInstance = null; }
+
+      const data = this.graphData;
+      const els = [];
+      const connected = new Set();
+      data.species_overlap.forEach(o => { connected.add(o.s1); connected.add(o.s2); });
+      const speciesToShow = connected.size > 0 ? data.species.filter(s => connected.has(s.id)) : [];
+
+      if (speciesToShow.length === 0) {
+        this.graphStats = { nodes: 0, edges: 0, density: '—', avgDegree: '—', classNodes: 0, topConnected: [] };
+        return;
+      }
+
+      const maxCpd = Math.max(...speciesToShow.map(s => s.compound_count), 1);
+      speciesToShow.forEach(s => {
+        const sz = 22 + Math.sqrt(s.compound_count / maxCpd) * 44;
+        els.push({ data: { id: 'sp_' + s.id, label: s.scientific_name, type: 'species', size: sz, compound_count: s.compound_count }});
+      });
+
+      const maxShared = Math.max(...data.species_overlap.map(o => o.shared_compounds), 1);
+      data.species_overlap.forEach(o => {
+        const w = 1.5 + Math.sqrt(o.shared_compounds / maxShared) * 7.5;
+        els.push({ data: { id: `e_${o.s1}_${o.s2}`, source: 'sp_' + o.s1, target: 'sp_' + o.s2, weight: o.shared_compounds, width: w, label: String(o.shared_compounds) }});
+      });
+
+      this._cyInstance = cytoscape({
+        container, elements: els,
+        style: this.getCytoscapeStyle('cooccurrence'),
+        layout: { name: 'cose', idealEdgeLength: 160, nodeRepulsion: 700000, gravity: 60, numIter: 1200, fit: true, padding: 50, randomize: false },
+      });
+      this.setupCytoscapeEvents();
+      this.updateGraphStats('cooccurrence');
+    },
+
+    setupCytoscapeEvents() {
+      const cy = this._cyInstance;
+      if (!cy) return;
+      cy.on('tap', 'node', (evt) => {
+        const node = evt.target;
+        const d = node.data();
+        cy.elements().removeClass('highlighted faded');
+        node.closedNeighborhood().addClass('highlighted');
+        cy.elements().not(node.closedNeighborhood()).addClass('faded');
+        this.graphSelectedNode = { label: d.label, type: d.type, compound_count: d.compound_count ?? d.species_count, degree: node.degree(false) };
+      });
+      cy.on('tap', (evt) => {
+        if (evt.target === cy) {
+          cy.elements().removeClass('highlighted faded');
+          this.graphSelectedNode = null;
+        }
+      });
+    },
+
+    updateGraphStats(mode) {
+      const cy = this._cyInstance;
+      if (!cy) return;
+      const n = cy.nodes().length;
+      const e = cy.edges().length;
+      const sN = cy.nodes('[type="species"]').length;
+      const cN = cy.nodes('[type="class"]').length;
+      const maxEdges = mode === 'bipartite' ? sN * cN : (n * (n - 1) / 2);
+      const density = maxEdges > 0 ? (e / maxEdges).toFixed(3) : '0.000';
+      const totalDeg = cy.nodes().reduce((s, nd) => s + nd.degree(false), 0);
+      const avgDegree = n > 0 ? (totalDeg / n).toFixed(1) : '0';
+      const topConnected = cy.nodes('[type="species"]')
+        .sort((a, b) => b.degree(false) - a.degree(false))
+        .slice(0, 5)
+        .map(nd => ({ name: nd.data('label'), degree: nd.degree(false) }));
+      this.graphStats = { nodes: n, edges: e, density, avgDegree, classNodes: cN, topConnected };
+    },
+
+    resetGraphLayout() {
+      if (!this._cyInstance) return;
+      this._cyInstance.layout({
+        name: 'cose', idealEdgeLength: 130, nodeRepulsion: 550000, gravity: 80,
+        numIter: 1200, fit: true, padding: 40, animate: true, animationDuration: 600,
+      }).run();
+    },
+
+    async loadDetailedStats() {
+      if (!this.detailedStats) {
+        const r = await fetch('/api/stats/detailed');
+        this.detailedStats = await r.json();
+      }
+      this.$nextTick(() => this.renderStatsCharts());
+    },
+
+    destroyStatsCharts() {
+      Object.values(this._statsCharts).forEach(c => { try { c.destroy(); } catch(e) {} });
+      this._statsCharts = {};
+    },
+
+    renderStatsCharts() {
+      this.destroyStatsCharts();
+      this.renderClassDonut();
+      this.renderSpeciesBars();
+      this.renderPartsChart();
+      this.renderCoverageRing();
+    },
+
+    renderClassDonut() {
+      const canvas = document.getElementById('stats-class-chart');
+      if (!canvas || !this.detailedStats) return;
+      const data = this.detailedStats.class_distribution || [];
+      this._statsCharts.class = new Chart(canvas, {
+        type: 'doughnut',
+        data: {
+          labels: data.map(d => d.compound_class),
+          datasets: [{
+            data: data.map(d => d.count),
+            backgroundColor: this.botanicalColors,
+            borderColor: '#1e293b',
+            borderWidth: 2,
+            hoverBorderWidth: 0,
+            hoverOffset: 6,
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, cutout: '68%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f172a', borderColor: '#334155', borderWidth: 1,
+              titleColor: '#e2e8f0', bodyColor: '#94a3b8',
+              callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} compounds` }
+            }
+          }
+        }
+      });
+    },
+
+    renderSpeciesBars() {
+      const canvas = document.getElementById('stats-species-chart');
+      if (!canvas || !this.detailedStats) return;
+      const data = [...(this.detailedStats.top_species || [])].reverse();
+      this._statsCharts.species = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels: data.map(d => d.scientific_name),
+          datasets: [{
+            label: 'Compounds',
+            data: data.map(d => d.compound_count),
+            backgroundColor: 'rgba(52,183,136,.7)',
+            borderColor: '#52b788',
+            borderWidth: 1,
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f172a', borderColor: '#334155', borderWidth: 1,
+              titleColor: '#e2e8f0', bodyColor: '#94a3b8',
+              callbacks: { label: ctx => ` ${ctx.raw} compounds` }
+            }
+          },
+          scales: {
+            x: { ticks: { color: '#9ca3af', font: { size: 10 } }, grid: { color: '#e5e7eb' } },
+            y: { ticks: { color: '#6b7280', font: { size: 10, style: 'italic' } }, grid: { display: false } }
+          }
+        }
+      });
+    },
+
+    renderPartsChart() {
+      const canvas = document.getElementById('stats-parts-chart');
+      if (!canvas || !this.detailedStats) return;
+      const data = this.detailedStats.plant_parts || [];
+      this._statsCharts.parts = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels: data.map(d => d.plant_part),
+          datasets: [
+            {
+              label: 'Unique Compounds',
+              data: data.map(d => d.compound_count),
+              backgroundColor: 'rgba(99,102,241,.75)',
+              borderColor: '#6366f1', borderWidth: 1, borderRadius: 4,
+            },
+            {
+              label: 'Measurements',
+              data: data.map(d => d.measurement_count),
+              backgroundColor: 'rgba(6,182,212,.45)',
+              borderColor: '#06b6d4', borderWidth: 1, borderRadius: 4,
+            }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: '#6b7280', font: { size: 11 }, boxWidth: 10, padding: 16,
+                        usePointStyle: true, pointStyle: 'circle' }
+            },
+            tooltip: {
+              backgroundColor: '#0f172a', borderColor: '#334155', borderWidth: 1,
+              titleColor: '#e2e8f0', bodyColor: '#94a3b8',
+            }
+          },
+          scales: {
+            x: { ticks: { color: '#9ca3af', font: { size: 10 }, maxRotation: 35 }, grid: { color: '#e5e7eb' } },
+            y: { ticks: { color: '#9ca3af', font: { size: 10 } }, grid: { color: '#e5e7eb' } }
+          }
+        }
+      });
+    },
+
+    renderCoverageRing() {
+      const canvas = document.getElementById('stats-coverage-chart');
+      if (!canvas) return;
+      const resolved = this.dbStats.compounds_with_structure || 0;
+      const unresolved = this.dbStats.compounds_not_found || 0;
+      const other = Math.max(0, (this.dbStats.compounds || 0) - resolved - unresolved);
+      this._statsCharts.coverage = new Chart(canvas, {
+        type: 'doughnut',
+        data: {
+          labels: ['With Structure', 'Unresolved', 'Partial'],
+          datasets: [{
+            data: [resolved, unresolved, other],
+            backgroundColor: ['rgba(52,211,153,.85)', 'rgba(251,191,36,.85)', 'rgba(71,85,105,.35)'],
+            borderColor: '#1e293b', borderWidth: 2, hoverBorderWidth: 0,
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, cutout: '72%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f172a', borderColor: '#334155', borderWidth: 1,
+              titleColor: '#e2e8f0', bodyColor: '#94a3b8',
+              callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} compounds` }
+            }
+          }
+        }
+      });
+    },
+  };
+}
+</script>
+</body>
+</html>
