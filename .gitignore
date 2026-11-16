@@ -17,3 +17,6 @@ py2opsin_temp_input.txt
 # OS
 .DS_Store
 Thumbs.db
+
+# Saidas geradas pelo ETL v2
+etl_v2/out/
